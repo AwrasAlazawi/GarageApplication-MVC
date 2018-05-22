@@ -15,11 +15,13 @@ namespace Garage_MVC_AmerAwras.Controllers
     {
         private GarageContext db = new GarageContext();
 
-        // GET: ParkedVehicles
-        public ActionResult Index()
+        //GET: ParkedVehicles
+        public ActionResult Index(string searchparm)
         {
+            //var model = db.Vehicles.OrderByDescending(p >= p.)
             return View(db.Vehicles.ToList());
         }
+       
 
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id)
