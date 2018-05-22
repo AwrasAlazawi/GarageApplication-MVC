@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.mainheader {
+background-color : darkred !important;
+color: lightgray !important;
+text-decoration-style:solid;
+}

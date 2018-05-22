@@ -6,7 +6,7 @@ using System.Web;
 namespace Garage_MVC_AmerAwras.Models
 {
 
-    public enum VehicleType
+       public enum VehicleType
     {
         Car,
         Bus,
@@ -14,4 +14,5 @@ namespace Garage_MVC_AmerAwras.Models
         Motorcycle,
         Airplane
     }
+
 }
