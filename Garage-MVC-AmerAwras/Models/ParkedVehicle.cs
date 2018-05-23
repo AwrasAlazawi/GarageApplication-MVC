@@ -35,10 +35,10 @@ namespace Garage_MVC_AmerAwras.Models
         public string Model { get; set; }
 
         [Required(ErrorMessage = "Please insert a valid number of wheels")]
-        [DisplayFormat(NullDisplayText = "Undefined")]
-        [DisplayName("Nr Of Wheels")]
-        [Range(0, 40, ErrorMessage = "Value must be between 0 to 40")]
-        public uint NumberOfWheels { get; set; }
+        //[DisplayFormat(NullDisplayText = "Undefined")]
+       // [DisplayName("Nr Of Wheels")]
+       [Range(0, 40, ErrorMessage = "Value must be between 0 to 40")]
+        public int NumberOfWheels { get; set; }
 
 
         // [DatabaseGenerated(DatabaseGeneratedOption.Computed)]

@@ -14,11 +14,47 @@ namespace Garage_MVC_AmerAwras.Controllers
     public class ParkedVehiclesController : Controller
     {
         private GarageContext db = new GarageContext();
-
+       
         //GET: ParkedVehicles
-        public ActionResult Index(string searchparm)
+        public ActionResult Index(string sortOrder)
         {
-            //var model = db.Vehicles.OrderByDescending(p >= p.)
+            ViewBag.RegnrSortParm = String.IsNullOrEmpty(sortOrder) ? "RegNr_decs" : "";
+            ViewBag.ColorSortParm = String.IsNullOrEmpty(sortOrder) ? "Color" : "";
+            ViewBag.BrandSortParm = String.IsNullOrEmpty(sortOrder) ? "Brand" : "";
+            ViewBag.ModelSortParm = String.IsNullOrEmpty(sortOrder) ? "Model" : "";
+            ViewBag.WheelsSortParm = String.IsNullOrEmpty(sortOrder) ? "Wheels" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_decs" : "Date";
+
+          //  ViewBag.TypeSortParm = sortOrder== "VehicleType" ? "VehicleType": "VehicleType";
+            var vehicles = from v in db.Vehicles select v;
+            switch (sortOrder)
+            {
+                case "RegNr_decs":
+                    vehicles = vehicles.OrderByDescending(v => v.RegNumber);
+                    break;
+                case "Color":
+                    vehicles = vehicles.OrderBy(v => v.Color);
+                    break;
+                case "Brand":
+                    vehicles = vehicles.OrderBy(v => v.Brand);
+                    break;
+                case "Model":
+                    vehicles = vehicles.OrderBy(v => v.Model);
+                    break;
+                case "Wheels":
+                    vehicles = vehicles.OrderBy(v => v.NumberOfWheels);
+                    break;
+                case "Date":
+                    vehicles = vehicles.OrderBy(v => v.CheckIn);
+                    break;
+               case "VehicleType":
+                    vehicles = vehicles.OrderByDescending(v => v.VehicleType);
+                    break;
+                default:
+                    vehicles = vehicles.OrderBy(v => v.RegNumber);
+                    break;
+               
+            }
             return View(db.Vehicles.ToList());
         }
        
@@ -56,7 +92,7 @@ namespace Garage_MVC_AmerAwras.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType")] ParkedVehicle parkedVehicle)
+        public ActionResult Create([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType,NumberOfWheels")] ParkedVehicle parkedVehicle)
         {
             if (ModelState.IsValid)
             {
@@ -156,5 +192,10 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             return View();
         }
+        //public ActionResult GetSearchRecord(string searchText)
+        //{
+        // //   List<ParkedVehicle> list = db.Vehicles.Where(x=> x.RegNumber.Contains(searchText)|| x.Color.Contains(searchText)).Select(x => new ParkedVehicle { VehicleType = x.VehicleType, RegNumber = x.RegNumber, Model = x.Model, Color = x.Color }).ToList();
+        //    return PartialView("SearchPartial", list);
+        //}
     }
 }

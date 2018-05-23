@@ -1,74 +1,97 @@
 ﻿
 @model IEnumerable<Garage_MVC_AmerAwras.Models.ParkedVehicle>
 
+<br /> <br />
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>ParkedVehicle</h2>
 
-<p>
+
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RegNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CheckIn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VehicleType)
-        </th>
-        <th>Action</th>
-    </tr>
+<table class="table table-striped">
+    <thead>
 
-    @if (Model.Count() == 0)
+        <tr>
+            <th>
+                @Html.ActionLink("Regestration. Number", "Index", new { sortOrder = ViewBag.RegnrSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Color", "Index", new { sortOrder = ViewBag.ColorSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Brand", "Index", new { sortOrder = ViewBag.BrandSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Model", "Index", new { sortOrder = ViewBag.ModelSortParm })
+            </th>
+            <td>
+                @Html.DisplayNameFor(model => model.NumberOfWheels)
+            </td>
+            <th>
+                @Html.ActionLink("Check In", "Index", new { sortOrder = ViewBag.DateSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleType)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="VehicleRow">
+
+
+        @foreach (var item in Model)
     {
         <tr>
-            <td colspan="7">We are sorry No rows match search critiria. Please try again.</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfWheels)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleType)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                @Html.ActionLink("Detail-view", "Details", new { id = item.Id }) |
+                @Html.ActionLink("CheckOut", "Delete", new { id = item.Id })
+            </td>
         </tr>
-    }
-    else
-    {
-        foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RegNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Color)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Brand)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Model)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CheckIn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VehicleType)
-                </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
-                    @Html.ActionLink("Detail-view", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("CheckOut", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
-    }
+}
+    </tbody>
+            
 </table>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#RegNumber").keydown(function () {
+            var searchtext = $(this).val;
+            debugger
+            $.ajax({
+                type: "post",
+                url: "/Index/GetSearchRecord?searchText=" + searchtext,
+                contentType: "html",
+                success: function (response) {
+                    $("#VehicleRow").html(response); 
+                }
+            })
+        })
+      
+</script>
