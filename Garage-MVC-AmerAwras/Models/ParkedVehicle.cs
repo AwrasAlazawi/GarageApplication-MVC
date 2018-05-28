@@ -14,34 +14,35 @@ namespace Garage_MVC_AmerAwras.Models
 
         [Required(ErrorMessage = "Registration Number should include at least three letters and maximum 5 numbers")]
         [StringLength(8)]
-        [DisplayFormat(NullDisplayText = "Undefined")]
+        [DisplayName("Regestation Number")]
         public string RegNumber { get; set; }
 
         [Required(ErrorMessage = "Please insert a valid color , Maximum 20 letters")]
         [StringLength(20)]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
-        [DisplayFormat(NullDisplayText = "Undefined")]
         public string Color { get; set; }
 
         [Required(ErrorMessage = "Please insert a valid name")]
         [StringLength(20)]
         [MinLength(3)]
-        [DisplayFormat(NullDisplayText = "Undefined")]
         public string Brand { get; set; }
 
         [Required(ErrorMessage = "Please insert a valid model")]
         [StringLength(20)]
-        [DisplayFormat(NullDisplayText = "Undefined")]
         public string Model { get; set; }
 
         [Required(ErrorMessage = "Please insert a valid number of wheels")]
         //[DisplayFormat(NullDisplayText = "Undefined")]
-       // [DisplayName("Nr Of Wheels")]
+       [DisplayName("Nr Of Wheels")]
        [Range(0, 40, ErrorMessage = "Value must be between 0 to 40")]
         public int NumberOfWheels { get; set; }
 
 
         // [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        //[DisplayFormat(NullDisplayText = "Undefined")]
+        //  [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss}")]
+        [DisplayFormat(DataFormatString = "{0:hh\\:mm\\  - dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+       // [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy h:mm tt}")]
         [DisplayName("Time Checked In")]
         public DateTime CheckIn { get; set; }
 
