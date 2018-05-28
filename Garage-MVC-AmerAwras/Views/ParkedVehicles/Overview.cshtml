@@ -6,9 +6,7 @@
 
 <h2>Overview for all vehicle</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -34,7 +32,9 @@
          <td>
             @Html.DisplayFor(modelItem => item.VehicleType)
         </td>
-       
+        <td>
+            @Html.ActionLink("Detail-view", "Details", new { id = item.Id })
+            </td>
     </tr>
 }
 

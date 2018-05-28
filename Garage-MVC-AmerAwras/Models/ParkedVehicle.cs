@@ -15,11 +15,11 @@ namespace Garage_MVC_AmerAwras.Models
         [Required(ErrorMessage = "Registration Number should include at least three letters and maximum 5 numbers")]
         [StringLength(8)]
         [DisplayFormat(NullDisplayText = "Undefined")]
-        [DisplayName("Reg Nr")]
         public string RegNumber { get; set; }
 
         [Required(ErrorMessage = "Please insert a valid color , Maximum 20 letters")]
         [StringLength(20)]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         [DisplayFormat(NullDisplayText = "Undefined")]
         public string Color { get; set; }
 
