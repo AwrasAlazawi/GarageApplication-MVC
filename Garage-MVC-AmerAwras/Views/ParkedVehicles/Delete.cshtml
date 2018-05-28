@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>CheckOut</h2>
+<h2>Check Out Vehicle</h2>
 
-<h3>Are you sure you want to Checkout this vehicle?</h3>
+
 <div>
     
     <hr />
@@ -14,66 +14,64 @@
         <dt>
             @Html.DisplayNameFor(model => model.RegNumber)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.RegNumber)
         </dd>
-
+        <br />
         <dt>
-            @Html.DisplayNameFor(model => model.Color)
+            @Html.DisplayNameFor(model => model.VehicleType)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Color)
+            @Html.DisplayFor(model => model.VehicleType)
         </dd>
-
+        <br />
         <dt>
-            @Html.DisplayNameFor(model => model.Brand)
+            @Html.DisplayNameFor(model => model.CheckIn)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Brand)
+            @Html.DisplayFor(model => model.CheckIn)
         </dd>
-
+        <br />
         <dt>
-            @Html.DisplayNameFor(model => model.Model)
+            @Html.DisplayNameFor(model => model.CheckOut)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Model)
+            @Html.DisplayFor(model => model.CheckOut)
         </dd>
+        <br />
         <dt>
+            @Html.DisplayNameFor(model => model.TotalTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalTime)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Sum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sum)
+        </dd>
+        <br />
+        @*<dt>
             @Html.DisplayNameFor(model => model.NumberOfWheels)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.NumberOfWheels)
-        </dd>
+        </dd>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CheckIn)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CheckIn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VehicleType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VehicleType)
-        </dd>
 
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to Parked Page", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" />
+        <input type="button" value="Print Receipt" class="btn btn-primary"  onclick="window.print();" />
+        @Html.ActionLink("Back to Parked Page", "Index")
+    </div>
     }
 </div>

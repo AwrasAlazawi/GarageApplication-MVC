@@ -41,30 +41,34 @@ namespace Garage_MVC_AmerAwras.Models
         // [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         //[DisplayFormat(NullDisplayText = "Undefined")]
         //  [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss}")]
-        [DisplayFormat(DataFormatString = "{0:hh\\:mm\\  - dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-       // [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy h:mm tt}")]
+        //[DisplayFormat(DataFormatString = "{0:hh\\:mm\\  - dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+       [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy h:mm tt}")]
         [DisplayName("Time Checked In")]
         public DateTime CheckIn { get; set; }
 
+        // [DisplayFormat(DataFormatString = "{0:hh\\:mm\\  - dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy h:mm tt}")]
+        [DisplayName("Time Checked Out")]
+        //[DefaultValue("2018-05-23 13:00:00")]
+        public DateTime? CheckOut { get; set; }
 
-        //[DisplayName("Time Checked Out")]
-        //public DateTime? CheckOut { get; set; }
 
+        // [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy h:mm tt}")]
+        [DisplayFormat(DataFormatString = "{0:HH}")]
+        [DisplayName("Total parking time")]
+        public string TotalTime { get; set; }
 
-        //[DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss}")]
-        //[DisplayName("Total parking time")]
-        //public TimeSpan TotalTime { get { return (CheckOut - CheckIn); } }
-
-        //[DataType(DataType.Currency)]
+        [DataType(DataType.Currency)]
         //[DisplayFormat(DataFormatString = "{0:C}")]
-        //[DisplayName("Price Per Hour")]
-        //public int PricePerHour { get { return 25; } }
+        [DisplayFormat (DataFormatString = "{0:N0}")]
+        [DisplayName("Price Per Hour")]
+        public int PricePerHour { get { return 25; } }
 
 
-        //[DataType(DataType.Currency)]
-        //[DisplayFormat(DataFormatString = "{0:C}")]
-        //[DisplayName("Price:")]
-        //public double Sum { get { return TotalTime.TotalHours * PricePerHour; } }
+        [DataType(DataType.Currency)]
+       // [DisplayFormat(DataFormatString = "{0:C}")]
+        [DisplayName("Total Price:")]
+        public double Sum { get; set; }
 
         public VehicleType VehicleType { get; set; }
 

@@ -169,6 +169,22 @@
     <Compile Include="Migrations\201805231110383_WheelstoTable.Designer.cs">
       <DependentUpon>201805231110383_WheelstoTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805281145418_Price.cs" />
+    <Compile Include="Migrations\201805281145418_Price.Designer.cs">
+      <DependentUpon>201805281145418_Price.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281222050_totalPrice.cs" />
+    <Compile Include="Migrations\201805281222050_totalPrice.Designer.cs">
+      <DependentUpon>201805281222050_totalPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281312123_tp.cs" />
+    <Compile Include="Migrations\201805281312123_tp.Designer.cs">
+      <DependentUpon>201805281312123_tp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281317073_stringtotal.cs" />
+    <Compile Include="Migrations\201805281317073_stringtotal.Designer.cs">
+      <DependentUpon>201805281317073_stringtotal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
     <Compile Include="Models\VehicleType.cs" />
@@ -185,6 +201,7 @@
     <Content Include="images\Background.jpg" />
     <Content Include="images\Garage.png" />
     <Content Include="images\oras.jpg" />
+    <Content Include="images\Parking-Garage.png" />
     <Content Include="images\Search.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -253,6 +270,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805231110383_WheelstoTable.resx">
       <DependentUpon>201805231110383_WheelstoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281145418_Price.resx">
+      <DependentUpon>201805281145418_Price.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281222050_totalPrice.resx">
+      <DependentUpon>201805281222050_totalPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281312123_tp.resx">
+      <DependentUpon>201805281312123_tp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281317073_stringtotal.resx">
+      <DependentUpon>201805281317073_stringtotal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

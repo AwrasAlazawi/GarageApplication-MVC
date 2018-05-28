@@ -15,7 +15,7 @@ namespace Garage_MVC_AmerAwras.Controllers
     public class ParkedVehiclesController : Controller
     {
         private GarageContext db = new GarageContext();
-       
+
         //GET: ParkedVehicles
         public ActionResult Index(string searchparam, string sortOrder, int? page, string currentFilter)
         {
@@ -42,9 +42,8 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             if (!String.IsNullOrEmpty(searchparam))
             {
-                parkedVehicles = parkedVehicles.Where(v => v.RegNumber.ToUpper().Contains(searchparam));
-               
-                
+                parkedVehicles = parkedVehicles.Where(v => v.RegNumber.ToUpper().Contains(searchparam) ||  v.Color.ToUpper().Contains(searchparam) || v.Model.ToUpper().Contains(searchparam)||
+                v.NumberOfWheels.ToString().Contains(searchparam));
             }
             switch (sortOrder)
             {
@@ -52,14 +51,14 @@ namespace Garage_MVC_AmerAwras.Controllers
                     parkedVehicles = parkedVehicles.OrderByDescending(v => v.RegNumber);
                     break;
                 case "Color":
-                   parkedVehicles = parkedVehicles.OrderBy(v => v.Color);
-                       break;
-                  case "Brand":
-                     parkedVehicles = parkedVehicles.OrderBy(v => v.Brand);
-                     break;
-                  case "Model":
+                    parkedVehicles = parkedVehicles.OrderBy(v => v.Color);
+                    break;
+                case "Brand":
+                    parkedVehicles = parkedVehicles.OrderBy(v => v.Brand);
+                    break;
+                case "Model":
                     parkedVehicles = parkedVehicles.OrderBy(v => v.Model);
-                      break;
+                    break;
                 case "Wheels":
                     parkedVehicles = parkedVehicles.OrderBy(v => v.NumberOfWheels);
                     break;
@@ -76,9 +75,10 @@ namespace Garage_MVC_AmerAwras.Controllers
             }
             int pageSize = 5;
             int pageNumber = (page ?? 1);
-            return View(parkedVehicles.ToPagedList(pageNumber,pageSize));
+            
+            return View(parkedVehicles.ToPagedList(pageNumber, pageSize));
         }
-       
+
 
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id)
@@ -96,17 +96,17 @@ namespace Garage_MVC_AmerAwras.Controllers
         }
 
         // GET: ParkedVehicles/Create
-        
-            public ActionResult Create()
-            {
-                var a = new Models.ParkedVehicle();
-                DateTime d = DateTime.Now;
-                string sd = d.ToString("MM/dd/yyyy HH:mm");
-                a.CheckIn = Convert.ToDateTime(sd);
 
-                return View(a);
+        public ActionResult Create()
+        {
+            var a = new Models.ParkedVehicle();
+            DateTime d = DateTime.Now;
+            string sd = d.ToString("MM/dd/yyyy HH:mm");
+            a.CheckIn = Convert.ToDateTime(sd);
 
-            }
+            return View(a);
+
+        }
 
         // POST: ParkedVehicles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -119,7 +119,7 @@ namespace Garage_MVC_AmerAwras.Controllers
             //var no = db.Vehicles.FirstOrDefault(w => w.Id == );
             //if (no == null)
 
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 db.Vehicles.Add(parkedVehicle);
                 db.SaveChanges();
@@ -163,6 +163,10 @@ namespace Garage_MVC_AmerAwras.Controllers
         // GET: ParkedVehicles/Delete/5
         public ActionResult Delete(int? id)
         {
+            DateTime checkOutTime = DateTime.Now;
+            int price = 25;
+            double sum = 1;
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -172,6 +176,27 @@ namespace Garage_MVC_AmerAwras.Controllers
             {
                 return HttpNotFound();
             }
+            
+            TimeSpan totalTime = checkOutTime - parkedVehicle.CheckIn;
+
+            if (totalTime.Days == 0)
+            {
+                if (totalTime.Hours <=1)
+                    {
+                    sum = 25;
+                }
+                else sum = totalTime.Hours * price;
+            }
+            else {
+                double hours = totalTime.TotalDays * 24;
+                double totalhours = hours + totalTime.Hours;
+                sum = totalhours * price;    
+            }
+          
+            parkedVehicle.CheckOut = checkOutTime;
+           parkedVehicle.TotalTime = totalTime.ToString();
+            parkedVehicle.Sum = sum;
+
             return View(parkedVehicle);
         }
 
@@ -232,3 +257,8 @@ namespace Garage_MVC_AmerAwras.Controllers
         //}
     }
 }
+
+  
+
+   
+
