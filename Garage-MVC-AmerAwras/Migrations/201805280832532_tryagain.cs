@@ -3,7 +3,7 @@ namespace Garage_MVC_AmerAwras.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class tryagain : DbMigration
     {
         public override void Up()
         {
@@ -16,6 +16,7 @@ namespace Garage_MVC_AmerAwras.Migrations
                         Color = c.String(nullable: false, maxLength: 20),
                         Brand = c.String(nullable: false, maxLength: 20),
                         Model = c.String(nullable: false, maxLength: 20),
+                        NumberOfWheels = c.Int(nullable: false),
                         CheckIn = c.DateTime(nullable: false),
                         VehicleType = c.Int(nullable: false),
                     })

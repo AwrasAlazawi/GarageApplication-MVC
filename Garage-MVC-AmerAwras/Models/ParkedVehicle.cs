@@ -23,9 +23,9 @@ namespace Garage_MVC_AmerAwras.Models
         [DisplayFormat(NullDisplayText = "Undefined")]
         public string Color { get; set; }
 
-        [Required(ErrorMessage = "Please insert a valid name")]
+        [Required(ErrorMessage = "Please insert a valid name")] 
         [StringLength(20)]
-        [MinLength(3)]
+        [MinLength(2)]
         [DisplayFormat(NullDisplayText = "Undefined")]
         public string Brand { get; set; }
 
