@@ -52,8 +52,8 @@ namespace Garage_MVC_AmerAwras.Migrations
                  RegNumber = "CCC456",
                  Color = "Yellow",
                  VehicleType = Models.VehicleType.Airplane,
-                 Brand = "Boing",
-                 Model = "404",
+                 Brand = "Boeing",
+                 Model = "747",
                  NumberOfWheels = 3,
                  CheckIn = DateTime.Now
              },
