@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201805281317073_stringtotal.Designer.cs">
       <DependentUpon>201805281317073_stringtotal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805291016069_decSum.cs" />
+    <Compile Include="Migrations\201805291016069_decSum.Designer.cs">
+      <DependentUpon>201805291016069_decSum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
     <Compile Include="Models\VehicleType.cs" />
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805281317073_stringtotal.resx">
       <DependentUpon>201805281317073_stringtotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805291016069_decSum.resx">
+      <DependentUpon>201805291016069_decSum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

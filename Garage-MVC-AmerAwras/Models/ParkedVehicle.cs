@@ -12,9 +12,11 @@ namespace Garage_MVC_AmerAwras.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Registration Number should include at least three letters and maximum 5 numbers")]
+        [Required(ErrorMessage = "Registration Number is required")]
         [StringLength(8)]
-        [DisplayName("Regestation Number")]
+        [MinLength(3)]
+       // [Range(0, 8, ErrorMessage = "Value must be between 0 to 40")]
+        [DisplayName("Registration Number")]
         public string RegNumber { get; set; }
 
         [Required(ErrorMessage = "Please insert a valid color , Maximum 20 letters")]
@@ -53,8 +55,8 @@ namespace Garage_MVC_AmerAwras.Models
         public DateTime? CheckOut { get; set; }
 
 
-        // [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy h:mm tt}")]
-        [DisplayFormat(DataFormatString = "{0:HH}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        // [DisplayFormat(DataFormatString = "{0:HH}")]
         [DisplayName("Total parking time")]
         public string TotalTime { get; set; }
 
@@ -66,9 +68,9 @@ namespace Garage_MVC_AmerAwras.Models
 
 
         [DataType(DataType.Currency)]
-       // [DisplayFormat(DataFormatString = "{0:C}")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         [DisplayName("Total Price:")]
-        public double Sum { get; set; }
+        public decimal Sum { get; set; }
 
         public VehicleType VehicleType { get; set; }
 

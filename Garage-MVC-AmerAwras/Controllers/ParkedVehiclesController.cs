@@ -165,7 +165,7 @@ namespace Garage_MVC_AmerAwras.Controllers
         {
             DateTime checkOutTime = DateTime.Now;
             int price = 25;
-            double sum = 1;
+            decimal sum = 1;
            
             if (id == null)
             {
@@ -181,20 +181,20 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             if (totalTime.Days == 0)
             {
-                if (totalTime.Hours <=1)
+                if (totalTime.Hours <=1 && totalTime.Minutes <=60)
                     {
                     sum = 25;
                 }
                 else sum = totalTime.Hours * price;
             }
             else {
-                double hours = totalTime.TotalDays * 24;
-                double totalhours = hours + totalTime.Hours;
+                decimal hours = Convert.ToDecimal(totalTime.TotalDays * 24);
+                decimal totalhours = hours + totalTime.Hours;
                 sum = totalhours * price;    
             }
-          
-            parkedVehicle.CheckOut = checkOutTime;
-           parkedVehicle.TotalTime = totalTime.ToString();
+           
+           parkedVehicle.CheckOut = checkOutTime;
+           parkedVehicle.TotalTime = string.Format("{0:%d} days {0:%h} hours {0:%m} minutes", totalTime).ToString();
             parkedVehicle.Sum = sum;
 
             return View(parkedVehicle);
