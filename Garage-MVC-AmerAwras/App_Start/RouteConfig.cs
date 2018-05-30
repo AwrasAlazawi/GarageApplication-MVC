@@ -16,7 +16,7 @@ namespace Garage_MVC_AmerAwras
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ParkedVehicles", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "ParkedVehicles", action = "GaragePage", id = UrlParameter.Optional }
             );
         }
     }

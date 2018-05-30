@@ -1,6 +1,5 @@
 namespace Garage_MVC_AmerAwras.Migrations
 {
-    using GarageA_MVC.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -17,7 +16,7 @@ namespace Garage_MVC_AmerAwras.Migrations
         {
             //  This method will be called after migrating to the latest version.
 
-            ParkedVehicle vehicle = new ParkedVehicle() { RegNumber = "AAA123", Color = "Silver", VehicleType = Models.VehicleType.Car, Brand = "BMW", Model = "BMW 303", NumberOfWheels = 4, CheckIn = DateTime.Now, CheckOut = DateTime.Now };
+            Models.ParkedVehicle vehicle = new Models.ParkedVehicle() { RegNumber = "AAA123", Color = "Silver", VehicleType = Models.VehicleType.Car, Brand = "BMW", Model = "BMW 303", NumberOfWheels = 4, CheckIn = DateTime.Now };
             context.Vehicles.AddOrUpdate(t => t.RegNumber, vehicle);
         }
     }
