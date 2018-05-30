@@ -1509,7 +1509,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 		div.innerHTML = "<div class='a'></div><div class='a i'></div>";
 
 		// Support: Safari<4
-		// Catch class over-caching
+		// Catch class over-
+
+
+
+
 		div.firstChild.className = "i";
 		// Support: Opera<10
 		// Catch gEBCN failure to find non-leading classes

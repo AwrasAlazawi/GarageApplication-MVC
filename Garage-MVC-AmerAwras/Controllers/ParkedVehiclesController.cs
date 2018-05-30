@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using Garage_MVC_AmerAwras.DataAccessLayer;
 using Garage_MVC_AmerAwras.Models;
 using PagedList;
@@ -17,6 +18,7 @@ namespace Garage_MVC_AmerAwras.Controllers
         private GarageContext db = new GarageContext();
 
         //GET: ParkedVehicles
+       
         public ActionResult Index(string searchparam, string sortOrder, int? page, string currentFilter)
         {
             ViewBag.CurrentSort = sortOrder;
@@ -129,42 +131,12 @@ namespace Garage_MVC_AmerAwras.Controllers
             return View(parkedVehicle);
         }
 
-        // GET: ParkedVehicles/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    ParkedVehicle parkedVehicle = db.Vehicles.Find(id);
-        //    if (parkedVehicle == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(parkedVehicle);
-        //}
-
-        // POST: ParkedVehicles/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType")] ParkedVehicle parkedVehicle)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(parkedVehicle).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(parkedVehicle);
-        }
-
+      
         // GET: ParkedVehicles/Delete/5
         public ActionResult Delete(int? id)
         {
             DateTime checkOutTime = DateTime.Now;
-            int price = 25;
+           // int price = 25;
             decimal sum = 1;
            
             if (id == null)
@@ -185,12 +157,12 @@ namespace Garage_MVC_AmerAwras.Controllers
                     {
                     sum = 25;
                 }
-                else sum = totalTime.Hours * price;
+                else sum = totalTime.Hours * parkedVehicle.PricePerHour;
             }
             else {
                 decimal hours = Convert.ToDecimal(totalTime.TotalDays * 24);
                 decimal totalhours = hours + totalTime.Hours;
-                sum = totalhours * price;    
+                sum = totalhours * parkedVehicle.PricePerHour;    
             }
            
            parkedVehicle.CheckOut = checkOutTime;
@@ -230,16 +202,12 @@ namespace Garage_MVC_AmerAwras.Controllers
         //About
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+              return View();
         }
 
         //Contact
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
@@ -250,11 +218,7 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             return View(db.Vehicles.ToList());
         }
-        //public ActionResult GetSearchRecord(string searchText)
-        //{
-        // //   List<ParkedVehicle> list = db.Vehicles.Where(x=> x.RegNumber.Contains(searchText)|| x.Color.Contains(searchText)).Select(x => new ParkedVehicle { VehicleType = x.VehicleType, RegNumber = x.RegNumber, Model = x.Model, Color = x.Color }).ToList();
-        //    return PartialView("SearchPartial", list);
-        //}
+      
     }
 }
 
