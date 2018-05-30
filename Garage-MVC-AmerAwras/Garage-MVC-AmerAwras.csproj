@@ -343,7 +343,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\airplane.jpg" />
     <Content Include="images\Background.jpg" />
+    <Content Include="images\boat.jpg" />
+    <Content Include="images\bus.jpg" />
+    <Content Include="images\car.jpg" />
+    <Content Include="images\Motorcycle.jpg" />
     <Content Include="images\olof.jpg" />
     <Content Include="images\oras.jpg" />
     <Content Include="images\Parking-Garage.png" />
