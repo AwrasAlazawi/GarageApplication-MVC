@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Garage_MVC_AmerAwras.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -13,6 +14,10 @@ namespace Garage_MVC_AmerAwras.DataAccessLayer
         {
 
         }
-        public DbSet<Models.ParkedVehicle> Vehicles { get; set; }
+        public DbSet<ParkedVehicle> Vehicles { get; set; }
+
+        public DbSet<VehicleReceipt> VehicleReceipts { get; set; }
+
+        public DbSet<VehicleCheckOut> VehicleCheckOuts { get; set; }
     }
 }

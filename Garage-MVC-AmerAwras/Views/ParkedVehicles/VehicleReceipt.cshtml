@@ -1,0 +1,68 @@
+﻿@model Garage_MVC_AmerAwras.Models.VehicleReceipt
+
+@{
+    ViewBag.Title = "VehicleReceipt";
+}
+
+<h2>VehicleReceipt</h2>
+
+<div>
+    <h4>Receipt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckIn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NowTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NowTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <span class="hidden-print">
+        <button class="printout btn btn-success">Print</button>
+        @Html.ActionLink("Back to List", "Index")
+        </span>
+</p>

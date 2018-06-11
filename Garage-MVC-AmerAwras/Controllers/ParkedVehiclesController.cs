@@ -161,29 +161,47 @@ namespace Garage_MVC_AmerAwras.Controllers
         }
 
         // GET: ParkedVehicles/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult CheckOut(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+               
+                return RedirectToAction("index");
             }
-            ParkedVehicle parkedVehicle = db.Vehicles.Find(id);
-            if (parkedVehicle == null)
+            ParkedVehicle v = db.Vehicles.Find(id);
+
+            if (v == null)
+            {
+                return RedirectToAction("index");
+            }
+
+            VehicleCheckOut vehicle = new VehicleCheckOut(v.Id, v.RegNumber, v.CheckIn, DateTime.Now);
+            if (vehicle == null)
             {
                 return HttpNotFound();
             }
-            return View(parkedVehicle);
+            return View(vehicle);
+
+
+            
         }
 
         // POST: ParkedVehicles/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+
+        public ActionResult VehicleReceipt(int id)
         {
-            ParkedVehicle parkedVehicle = db.Vehicles.Find(id);
-            db.Vehicles.Remove(parkedVehicle);
+            ParkedVehicle v = db.Vehicles.Find(id);
+            if (v == null)
+            {
+                return HttpNotFound();
+            }
+            db.Vehicles.Remove(v);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            VehicleReceipt info = new VehicleReceipt(v.Id, v.RegNumber, v.Model, v.CheckIn, DateTime.Now);
+            return View(info);
         }
 
         protected override void Dispose(bool disposing)
