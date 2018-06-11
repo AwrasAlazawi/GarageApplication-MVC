@@ -10,7 +10,7 @@ namespace Garage_MVC_AmerAwras.DataAccessLayer
     public class GarageContext : DbContext
 
     {
-        public GarageContext() : base("GarageMVC")
+        public GarageContext() : base("GarageMVCHomeOlof")
         {
 
         }

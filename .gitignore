@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Garage-MVC-AmerAwras/Migrations/201806111956597_Init.resx
+/Garage-MVC-AmerAwras/Migrations/201806111956597_Init.Designer.cs
+/Garage-MVC-AmerAwras/Migrations/201806111956597_Init.cs

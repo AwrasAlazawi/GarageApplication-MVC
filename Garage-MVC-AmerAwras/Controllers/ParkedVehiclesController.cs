@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -15,51 +16,57 @@ namespace Garage_MVC_AmerAwras.Controllers
     public class ParkedVehiclesController : Controller
     {
         private GarageContext db = new GarageContext();
-       
+
         //GET: ParkedVehicles
-        public ActionResult Index(string searchparam, string sortOrder, int? page, string currentFilter)
+        public ActionResult Index(string RegNumber = "", string Color = "", string Brand = "", string sortOrder = "", int page = 1)
         {
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.RegnrSortParm = String.IsNullOrEmpty(sortOrder) ? "RegNr_decs" : "";
-            ViewBag.ColorSortParm = String.IsNullOrEmpty(sortOrder) ? "Color" : "";
-            ViewBag.BrandSortParm = String.IsNullOrEmpty(sortOrder) ? "Brand" : "";
-            ViewBag.ModelSortParm = String.IsNullOrEmpty(sortOrder) ? "Model" : "";
-            ViewBag.WheelsSortParm = String.IsNullOrEmpty(sortOrder) ? "Wheels" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "CheckIn";
-            ViewBag.TypeSortParm = String.IsNullOrEmpty(sortOrder) ? "Type" : "";
 
-            if (searchparam != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchparam = currentFilter;
-            }
-            ViewBag.currentFilter = searchparam;
+            var parkedVehicles = db.Vehicles.Where(v => (RegNumber == "" || v.RegNumber.Contains(RegNumber)) &&
+                                                     (Color == null || v.Color == Color.ToString()) &&
+                                                     (Brand.Trim() == "" || v.Brand.Contains(Brand.Trim())));
 
-            var parkedVehicles = from v in db.Vehicles select v;
-
-            if (!String.IsNullOrEmpty(searchparam))
             {
-                parkedVehicles = parkedVehicles.Where(v => v.RegNumber.ToUpper().Contains(searchparam));
-               
-                
+                //ViewBag.CurrentSort = sortOrder;
+                //ViewBag.RegnrSortParm = String.IsNullOrEmpty(sortOrder) ? "RegNr_decs" : "";
+                //ViewBag.ColorSortParm = String.IsNullOrEmpty(sortOrder) ? "Color" : "";
+                //ViewBag.BrandSortParm = String.IsNullOrEmpty(sortOrder) ? "Brand" : "";
+                //ViewBag.ModelSortParm = String.IsNullOrEmpty(sortOrder) ? "Model" : "";
+                //ViewBag.WheelsSortParm = String.IsNullOrEmpty(sortOrder) ? "Wheels" : "";
+                //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "CheckIn";
+                //ViewBag.TypeSortParm = String.IsNullOrEmpty(sortOrder) ? "Type" : "";
+
+                //if (searchparam != null)
+                //{
+                //    page = 1;
+                //}
+                //else
+                //{
+                //    searchparam = currentFilter;
+                //}
+                //ViewBag.currentFilter = searchparam;
+
+                //var parkedVehicles = from v in db.Vehicles select v;
+
+                //if (!String.IsNullOrEmpty(searchparam))
+                //{
+                //    parkedVehicles = parkedVehicles.Where(v => v.RegNumber.ToUpper().Contains(searchparam));
+
+
             }
             switch (sortOrder)
             {
-                case "RegNr_decs":
+                case "RegNumber":
                     parkedVehicles = parkedVehicles.OrderByDescending(v => v.RegNumber);
                     break;
                 case "Color":
-                   parkedVehicles = parkedVehicles.OrderBy(v => v.Color);
-                       break;
-                  case "Brand":
-                     parkedVehicles = parkedVehicles.OrderBy(v => v.Brand);
-                     break;
-                  case "Model":
+                    parkedVehicles = parkedVehicles.OrderBy(v => v.Color);
+                    break;
+                case "Brand":
+                    parkedVehicles = parkedVehicles.OrderBy(v => v.Brand);
+                    break;
+                case "Model":
                     parkedVehicles = parkedVehicles.OrderBy(v => v.Model);
-                      break;
+                    break;
                 case "Wheels":
                     parkedVehicles = parkedVehicles.OrderBy(v => v.NumberOfWheels);
                     break;
@@ -75,10 +82,10 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             }
             int pageSize = 5;
-            int pageNumber = (page ?? 1);
-            return View(parkedVehicles.ToPagedList(pageNumber,pageSize));
+            int pageNumber = (page = 1);
+            return View(parkedVehicles.ToPagedList(pageNumber, pageSize));
         }
-       
+
 
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id)
@@ -96,21 +103,24 @@ namespace Garage_MVC_AmerAwras.Controllers
         }
 
         // GET: ParkedVehicles/Create
-        
-            public ActionResult Create()
-            {
-                var a = new Models.ParkedVehicle();
-                DateTime d = DateTime.Now;
-                string sd = d.ToString("MM/dd/yyyy HH:mm");
-                a.CheckIn = Convert.ToDateTime(sd);
 
-                return View(a);
+        public ActionResult Create()
+        {
+            var a = new Models.ParkedVehicle();
+            DateTime d = DateTime.Now;
+            string sd = d.ToString("MM/dd/yyyy HH:mm");
+            a.CheckIn = Convert.ToDateTime(sd);
 
-            }
+            return View(a);
+
+        }
 
         // POST: ParkedVehicles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType,NumberOfWheels")] ParkedVehicle parkedVehicle)
@@ -119,7 +129,7 @@ namespace Garage_MVC_AmerAwras.Controllers
             //var no = db.Vehicles.FirstOrDefault(w => w.Id == );
             //if (no == null)
 
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 db.Vehicles.Add(parkedVehicle);
                 db.SaveChanges();
@@ -127,26 +137,28 @@ namespace Garage_MVC_AmerAwras.Controllers
             }
 
             return View(parkedVehicle);
+
+
+            // GET: ParkedVehicles/Edit/5
+            //public ActionResult Edit(int? id)
+            //{
+            //    if (id == null)
+            //    {
+            //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //    }
+            //    ParkedVehicle parkedVehicle = db.Vehicles.Find(id);
+            //    if (parkedVehicle == null)
+            //    {
+            //        return HttpNotFound();
+            //    }
+            //    return View(parkedVehicle);
+            //}
+
+            // POST: ParkedVehicles/Edit/5
+            // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+            // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         }
-
-        // GET: ParkedVehicles/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    ParkedVehicle parkedVehicle = db.Vehicles.Find(id);
-        //    if (parkedVehicle == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(parkedVehicle);
-        //}
-
-        // POST: ParkedVehicles/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType")] ParkedVehicle parkedVehicle)
@@ -165,7 +177,7 @@ namespace Garage_MVC_AmerAwras.Controllers
         {
             if (id == null)
             {
-               
+
                 return RedirectToAction("index");
             }
             ParkedVehicle v = db.Vehicles.Find(id);
@@ -183,7 +195,7 @@ namespace Garage_MVC_AmerAwras.Controllers
             return View(vehicle);
 
 
-            
+
         }
 
         // POST: ParkedVehicles/Delete/5
@@ -212,6 +224,7 @@ namespace Garage_MVC_AmerAwras.Controllers
             }
             base.Dispose(disposing);
         }
+   
 
         //GaragePage
         public ActionResult GaragePage()
@@ -220,33 +233,35 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             return View();
         }
-        //About
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        //Contact
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        //Overview
-        public ActionResult Overview()
-        {
-            ViewBag.Message = "Your OverView page for all Vehicle.";
-
-            return View(db.Vehicles.ToList());
-        }
-        //public ActionResult GetSearchRecord(string searchText)
-        //{
-        // //   List<ParkedVehicle> list = db.Vehicles.Where(x=> x.RegNumber.Contains(searchText)|| x.Color.Contains(searchText)).Select(x => new ParkedVehicle { VehicleType = x.VehicleType, RegNumber = x.RegNumber, Model = x.Model, Color = x.Color }).ToList();
-        //    return PartialView("SearchPartial", list);
-        //}
     }
 }
+//About
+//public ActionResult About()
+//{
+//    ViewBag.Message = "Your application description page.";
+
+//    return View();
+//}
+
+//Contact
+//public ActionResult Contact()
+//{
+//    ViewBag.Message = "Your contact page.";
+
+//    return View();
+//}
+
+////Overview
+//public ActionResult Overview()
+//{
+//    ViewBag.Message = "Your OverView page for all Vehicle.";
+
+//    return View(db.Vehicles.ToList());
+//}
+//public ActionResult GetSearchRecord(string searchText)
+//{
+// //   List<ParkedVehicle> list = db.Vehicles.Where(x=> x.RegNumber.Contains(searchText)|| x.Color.Contains(searchText)).Select(x => new ParkedVehicle { VehicleType = x.VehicleType, RegNumber = x.RegNumber, Model = x.Model, Color = x.Color }).ToList();
+//    return PartialView("SearchPartial", list);
+//}
+//    }
+//}
