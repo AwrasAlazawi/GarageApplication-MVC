@@ -18,68 +18,45 @@ namespace Garage_MVC_AmerAwras.Controllers
         private GarageContext db = new GarageContext();
 
         //GET: ParkedVehicles
-       
-        public ActionResult Index(string searchparam, string sortOrder, int? page, string currentFilter)
+
+        public ActionResult Index(string sortOrder)
+
         {
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.RegnrSortParm = String.IsNullOrEmpty(sortOrder) ? "RegNr_decs" : "";
-            ViewBag.ColorSortParm = String.IsNullOrEmpty(sortOrder) ? "Color" : "";
-            ViewBag.BrandSortParm = String.IsNullOrEmpty(sortOrder) ? "Brand" : "";
-            ViewBag.ModelSortParm = String.IsNullOrEmpty(sortOrder) ? "Model" : "";
-            ViewBag.WheelsSortParm = String.IsNullOrEmpty(sortOrder) ? "Wheels" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "CheckIn";
-            ViewBag.TypeSortParm = String.IsNullOrEmpty(sortOrder) ? "Type" : "";
+            var parkedVehicle = db.Vehicles.ToList();
 
-            if (searchparam != null)
+            if (sortOrder == "Ascending")
             {
-                page = 1;
+                parkedVehicle = parkedVehicle.OrderBy(s => s.RegNumber).ToList();
             }
-            else
-            {
-                searchparam = currentFilter;
-            }
-            ViewBag.currentFilter = searchparam;
 
-            var parkedVehicles = from v in db.Vehicles select v;
-
-            if (!String.IsNullOrEmpty(searchparam))
+            else if (sortOrder == "Descending")
             {
-                parkedVehicles = parkedVehicles.Where(v => v.RegNumber.ToUpper().Contains(searchparam) ||  v.Color.ToUpper().Contains(searchparam) || v.Model.ToUpper().Contains(searchparam)||
-                v.NumberOfWheels.ToString().Contains(searchparam));
+                parkedVehicle = parkedVehicle.OrderByDescending(s => s.RegNumber).ToList();
             }
-            switch (sortOrder)
-            {
-                case "RegNr_decs":
-                    parkedVehicles = parkedVehicles.OrderByDescending(v => v.RegNumber);
-                    break;
-                case "Color":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.Color);
-                    break;
-                case "Brand":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.Brand);
-                    break;
-                case "Model":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.Model);
-                    break;
-                case "Wheels":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.NumberOfWheels);
-                    break;
-                case "CheckIn":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.CheckIn);
-                    break;
-                case "Type":
-                    parkedVehicles = parkedVehicles.OrderByDescending(v => v.VehicleType);
-                    break;
-                default:
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.RegNumber);
-                    break;
 
+
+            List<ParkedVehicleModel> iv = new List<ParkedVehicleModel>();
+            foreach (ParkedVehicle e in parkedVehicle.ToList())
+
+            {
+                iv.Add(new ParkedVehicleModel(e));
             }
-            int pageSize = 5;
-            int pageNumber = (page ?? 1);
-            
-            return View(parkedVehicles.ToPagedList(pageNumber, pageSize));
+            return View(iv);
         }
+        //[HttpPost]
+        public ActionResult Search(string search)
+        {
+
+            List<ParkedVehicleModel> parkedSearch = new List<ParkedVehicleModel>();
+
+            foreach (ParkedVehicle e in db.Vehicles.Where(s => s.RegNumber.Contains(search) || s.Color.Contains(search)).ToList())
+            {
+                parkedSearch.Add(new ParkedVehicleModel(e));
+            }
+
+            return View("Index", parkedSearch);
+        }
+
 
 
         // GET: ParkedVehicles/Details/5
@@ -157,17 +134,17 @@ namespace Garage_MVC_AmerAwras.Controllers
                     {
                     sum = 25;
                 }
-                else sum = totalTime.Hours * parkedVehicle.PricePerHour;
+               // else sum = totalTime.Hours * parkedVehicle.PricePerHour;
             }
             else {
                 decimal hours = Convert.ToDecimal(totalTime.TotalDays * 24);
                 decimal totalhours = hours + totalTime.Hours;
-                sum = totalhours * parkedVehicle.PricePerHour;    
+               // sum = totalhours * parkedVehicle.PricePerHour;    
             }
            
-           parkedVehicle.CheckOut = checkOutTime;
-           parkedVehicle.TotalTime = string.Format("{0:%d} days {0:%h} hours {0:%m} minutes", totalTime).ToString();
-            parkedVehicle.Sum = sum;
+           //parkedVehicle.CheckOut = checkOutTime;
+           //parkedVehicle.TotalTime = string.Format("{0:%d} days {0:%h} hours {0:%m} minutes", totalTime).ToString();
+           // parkedVehicle.Sum = sum;
 
             return View(parkedVehicle);
         }

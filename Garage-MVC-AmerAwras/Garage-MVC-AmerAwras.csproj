@@ -289,6 +289,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\ParkedVehicles1Controller.cs" />
     <Compile Include="Controllers\ParkedVehiclesController.cs" />
     <Compile Include="DataAccessLayer\GarageContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -330,8 +332,24 @@
     <Compile Include="Migrations\201805291016069_decSum.Designer.cs">
       <DependentUpon>201805291016069_decSum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806120818060_upsys.cs" />
+    <Compile Include="Migrations\201806120818060_upsys.Designer.cs">
+      <DependentUpon>201806120818060_upsys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806121210554_member.cs" />
+    <Compile Include="Migrations\201806121210554_member.Designer.cs">
+      <DependentUpon>201806121210554_member.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806121252537_mp.cs" />
+    <Compile Include="Migrations\201806121252537_mp.Designer.cs">
+      <DependentUpon>201806121252537_mp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
+    <Compile Include="Models\ParkedVehicleModel.cs" />
+    <Compile Include="Models\Receipt.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -389,6 +407,16 @@
     <Content Include="Views\ParkedVehicles\Edit.cshtml" />
     <Content Include="Views\ParkedVehicles\Index.cshtml" />
     <Content Include="Views\ParkedVehicles\GaragePage.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\ParkedVehicles1\Create.cshtml" />
+    <Content Include="Views\ParkedVehicles1\Delete.cshtml" />
+    <Content Include="Views\ParkedVehicles1\Details.cshtml" />
+    <Content Include="Views\ParkedVehicles1\Edit.cshtml" />
+    <Content Include="Views\ParkedVehicles1\Index.cshtml" />
     <None Include="Views\ParkedVehicles\Overview.cshtml" />
     <Content Include="Views\Shared\SearchPartial.cshtml" />
   </ItemGroup>
@@ -435,6 +463,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805291016069_decSum.resx">
       <DependentUpon>201805291016069_decSum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806120818060_upsys.resx">
+      <DependentUpon>201806120818060_upsys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806121210554_member.resx">
+      <DependentUpon>201806121210554_member.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806121252537_mp.resx">
+      <DependentUpon>201806121252537_mp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

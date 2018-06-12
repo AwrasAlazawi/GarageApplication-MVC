@@ -2235,8 +2235,8 @@ textarea.input-lg {
     .btn-default.active,
     .open .dropdown-toggle.btn-default {
         color: #333333;
-        background-color: #b70303;
-        border-color: #b70303;
+        background-color: #305fa0;
+        border-color: #305fa0;
     }
 
     .btn-default:active,
@@ -3419,7 +3419,7 @@ input[type="button"].btn-block {
     margin: 2px 0 0;
     font-size: 14px;
     list-style: none;
-    background-color: #b70303;
+    background-color: #305fa0;
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
@@ -3462,7 +3462,7 @@ input[type="button"].btn-block {
     .dropdown-menu > .active > a:focus {
         color: #ffffff;
         text-decoration: none;
-        background-color: #b70303;
+        background-color: #305fa0;
         outline: 0;
     }
 

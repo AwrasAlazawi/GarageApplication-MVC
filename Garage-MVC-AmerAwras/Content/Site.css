@@ -1,10 +1,11 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image: url('/images/Background.jpg') !important;
-    color: lightgray !important;
+    /*background-image: url('/images/Background.jpg') !important;*/
+    color: black !important;
     font-size: 16px !important;
     font-weight: bold !important;
+    background-color : whitesmoke;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -28,10 +29,10 @@ textarea {
 }
 
 .mainheader {
-    background-color: #b70303 !important;
+    background-color: #305fa0 !important;
     color: lightgray !important;
-    font-weight:bold;
-    border:hidden !important
+    font-weight: bold;
+    border: hidden !important
 }
 
 
@@ -63,7 +64,7 @@ textarea {
 }
 
 h2 {
-    text-shadow: 2px 2px 4px #b70303 !important;
+    text-shadow: 2px 2px 4px #305fa0 !important;
 }
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
