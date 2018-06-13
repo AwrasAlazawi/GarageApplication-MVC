@@ -3,16 +3,16 @@ namespace Garage_MVC_AmerAwras.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class tp : DbMigration
+    public partial class vtype : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.ParkedVehicles", "TotalTime", c => c.Time(precision: 7));
+            AlterColumn("dbo.VehicleTypes", "VehicleTypeName", c => c.String(nullable: false, maxLength: 8));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.ParkedVehicles", "TotalTime");
+            AlterColumn("dbo.VehicleTypes", "VehicleTypeName", c => c.String());
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Web.UI;
 using Garage_MVC_AmerAwras.DataAccessLayer;
 using Garage_MVC_AmerAwras.Models;
 using PagedList;
+using AutoMapper;
 
 namespace Garage_MVC_AmerAwras.Controllers
 {
@@ -35,15 +36,30 @@ namespace Garage_MVC_AmerAwras.Controllers
             }
 
 
-            List<ParkedViewModel> iv = new List<ParkedViewModel>();
+            List<ParkedViewModel> pvm = new List<ParkedViewModel>();
             foreach (ParkedVehicle e in parkedVehicle.ToList())
 
             {
-                iv.Add(new ParkedViewModel(e));
+                pvm.Add(new ParkedViewModel(e));
             }
-            return View(iv);
+            return View(pvm);
         }
-        //[HttpPost]
+
+        //[HttpGet]
+       // public ActionResult DDLType()
+       // {
+        //    List<VehicleType> vt = Mapper.Map<List<VehicleType>, List<VehicleType>>(db.vehicleTypes.ToList());
+        //    var model = new MyViewModel();
+
+        //    model.list = new SelectList(groepen, "id", "Naam");
+
+        //    return View(model);
+        //}
+
+        //    return View("Index", vt);
+      //  }
+
+                //[HttpPost]
         public ActionResult Search(string search)
         {
 
@@ -52,7 +68,7 @@ namespace Garage_MVC_AmerAwras.Controllers
             foreach (ParkedVehicle e in db.Vehicles.Where(s => s.RegNumber.Contains(search) || s.Color.Contains(search)).ToList())
             {
                 parkedSearch.Add(new ParkedViewModel(e));
-            }
+            }    
 
             return View("Index", parkedSearch);
         }
@@ -85,8 +101,8 @@ namespace Garage_MVC_AmerAwras.Controllers
 
           
             {
-                var fromDatabaseEF = new SelectList(cshparpEntity.MySkills.ToList(), "ID", "Name");
-                ViewData["DBMySkills"] = fromDatabaseEF;
+               // var fromDatabaseEF = new SelectList(cshparpEntity.MySkills.ToList(), "ID", "Name");
+               // ViewData["DBMySkills"] = fromDatabaseEF;
             }
             return View(a);
 
@@ -137,7 +153,7 @@ namespace Garage_MVC_AmerAwras.Controllers
             {
                 if (totalTime.Hours <=1 && totalTime.Minutes <=60)
                     {
-                    sum = 25;
+                    totalPrice = 25;
                 }
                // else sum = totalTime.Hours * parkedVehicle.PricePerHour;
             }

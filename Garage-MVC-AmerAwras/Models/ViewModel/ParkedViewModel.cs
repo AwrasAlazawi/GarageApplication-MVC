@@ -13,7 +13,9 @@ namespace Garage_MVC_AmerAwras.Models
         public string Color { get; set; }
         public string Brand { get; set; }
         public DateTime CheckIn { get; set; }
-
+        public string TypeName { get; set; }
+        public int MemberId { get; set; }
+        public string MemberName { get; set; }
 
         public ParkedViewModel(ParkedVehicle parkedVehicle)
         {
@@ -23,6 +25,9 @@ namespace Garage_MVC_AmerAwras.Models
             Color = parkedVehicle.Color;
             Brand = parkedVehicle.Brand;
             CheckIn = parkedVehicle.CheckIn;
+           // TypeName = vehicleType.VehicleTypeName;
+            MemberId = parkedVehicle.MemberId;
+          //  MemberName = member.FirstName + " " + member.LastName;
         }
 
     }
