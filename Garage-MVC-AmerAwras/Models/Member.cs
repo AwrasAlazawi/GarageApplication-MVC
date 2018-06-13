@@ -28,9 +28,8 @@ namespace Garage_MVC_AmerAwras.Models
         [RegularExpression(@"^(\d{10})$", ErrorMessage = "Not a valid Mobile number")]
         [DisplayName("Mobile Number")]
         public string PhoneNr { get; set; }
+     
 
-       public virtual ParkedVehicle ParkedVehicles { get; set; }
-
-
+        public virtual ICollection<ParkedVehicle> ParkedVehicles { get; set; }
     }
 }

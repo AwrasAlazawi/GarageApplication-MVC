@@ -35,11 +35,11 @@ namespace Garage_MVC_AmerAwras.Controllers
             }
 
 
-            List<ParkedVehicleModel> iv = new List<ParkedVehicleModel>();
+            List<ParkedViewModel> iv = new List<ParkedViewModel>();
             foreach (ParkedVehicle e in parkedVehicle.ToList())
 
             {
-                iv.Add(new ParkedVehicleModel(e));
+                iv.Add(new ParkedViewModel(e));
             }
             return View(iv);
         }
@@ -47,11 +47,11 @@ namespace Garage_MVC_AmerAwras.Controllers
         public ActionResult Search(string search)
         {
 
-            List<ParkedVehicleModel> parkedSearch = new List<ParkedVehicleModel>();
+            List<ParkedViewModel> parkedSearch = new List<ParkedViewModel>();
 
             foreach (ParkedVehicle e in db.Vehicles.Where(s => s.RegNumber.Contains(search) || s.Color.Contains(search)).ToList())
             {
-                parkedSearch.Add(new ParkedVehicleModel(e));
+                parkedSearch.Add(new ParkedViewModel(e));
             }
 
             return View("Index", parkedSearch);
@@ -83,6 +83,11 @@ namespace Garage_MVC_AmerAwras.Controllers
             string sd = d.ToString("MM/dd/yyyy HH:mm");
             a.CheckIn = Convert.ToDateTime(sd);
 
+          
+            {
+                var fromDatabaseEF = new SelectList(cshparpEntity.MySkills.ToList(), "ID", "Name");
+                ViewData["DBMySkills"] = fromDatabaseEF;
+            }
             return View(a);
 
         }
@@ -160,19 +165,19 @@ namespace Garage_MVC_AmerAwras.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        //GaragePage
+        //To Populate DropDown List for Vehicle Type
         public ActionResult GaragePage()
         {
             ViewBag.Message = "Welcome To Garage Application 2.0";
+
+            return View();
+        }
+
+
+        //GaragePage
+        public ActionResult PopulateDDL_Type()
+        {
+          
 
             return View();
         }
@@ -195,7 +200,14 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             return View(db.Vehicles.ToList());
         }
-      
+       protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }
 

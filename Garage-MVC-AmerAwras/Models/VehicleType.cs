@@ -5,14 +5,12 @@ using System.Web;
 
 namespace Garage_MVC_AmerAwras.Models
 {
-
-       public enum VehicleType
+    public class VehicleTypes
     {
-        Car,
-        Bus,
-        Boat,
-        Motorcycle,
-        Airplane
+        public int TypeId { get; set; }
+        public string VehicleName { get; set; }
+
+        public virtual ICollection<ParkedVehicle> ParkedVehicles { get; set; }
     }
 
 }

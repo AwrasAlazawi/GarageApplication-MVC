@@ -19,7 +19,7 @@ namespace Garage_MVC_AmerAwras.Migrations
             Models.Member member = new Models.Member() { FirstName = "Awras", LastName = "Alazawi", Email= "oras.haydar@hotmail.com", PhoneNr="0760470502"};
             context.Members.AddOrUpdate(m => m.PhoneNr, member);
 
-            Models.ParkedVehicle vehicle = new Models.ParkedVehicle() { RegNumber = "AAA123", Color = "Silver", VehicleType = Models.VehicleType.Car, Brand = "BMW", Model = "BMW 303", NumberOfWheels = 4, CheckIn = DateTime.Now };
+            Models.ParkedVehicle vehicle = new Models.ParkedVehicle() { RegNumber = "AAA123", Color = "Silver", TypeId = 1    , Brand = "BMW", Model = "BMW 303", NumberOfWheels = 4, CheckIn = DateTime.Now };
             context.Vehicles.AddOrUpdate(t => t.RegNumber, vehicle);
         }
     }

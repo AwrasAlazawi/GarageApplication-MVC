@@ -290,7 +290,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\MembersController.cs" />
-    <Compile Include="Controllers\ParkedVehicles1Controller.cs" />
     <Compile Include="Controllers\ParkedVehiclesController.cs" />
     <Compile Include="DataAccessLayer\GarageContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -348,7 +347,7 @@
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
-    <Compile Include="Models\ParkedVehicleModel.cs" />
+    <Compile Include="Models\ParkedViewModel.cs" />
     <Compile Include="Models\Receipt.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -412,11 +411,6 @@
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Create.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Delete.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Details.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Edit.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Index.cshtml" />
     <None Include="Views\ParkedVehicles\Overview.cshtml" />
     <Content Include="Views\Shared\SearchPartial.cshtml" />
   </ItemGroup>

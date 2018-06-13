@@ -42,12 +42,14 @@ namespace Garage_MVC_AmerAwras.Models
         [DisplayName("Time Checked In")]
         public DateTime CheckIn { get; set; }
 
-        public VehicleType VehicleType { get; set; }
 
+        public int TypeId { get; set; }
+        public virtual VehicleTypes Types { get; set; }
 
         public int MemberId { get; set; }
-        public virtual ICollection<Member> Members { get; set; }
 
+        public virtual Member Members { get; set; }
+   
 
     }
 
