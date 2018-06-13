@@ -18,72 +18,47 @@ namespace Garage_MVC_AmerAwras.Controllers
         private GarageContext db = new GarageContext();
 
         //GET: ParkedVehicles
-        public ActionResult Index(string RegNumber = "", string Color = "", string Brand = "", string sortOrder = "", int page = 1)
+        public ActionResult Overview(VehicleType? Type, string RegNumber = "", string Color = "", string Brand = "", string sortOrder = "", int page = 1)
         {
+            // List<ParkedVehicle> vehicles = new List<ParkedVehicle>();
 
-            var parkedVehicles = db.Vehicles.Where(v => (RegNumber == "" || v.RegNumber.Contains(RegNumber)) &&
-                                                     (Color == null || v.Color == Color.ToString()) &&
-                                                     (Brand.Trim() == "" || v.Brand.Contains(Brand.Trim())));
+            var vehicleSort =
+               db.Vehicles
+               .Where(v => (RegNumber == "" || v.RegNumber.Contains(RegNumber)));
 
-            {
-                //ViewBag.CurrentSort = sortOrder;
-                //ViewBag.RegnrSortParm = String.IsNullOrEmpty(sortOrder) ? "RegNr_decs" : "";
-                //ViewBag.ColorSortParm = String.IsNullOrEmpty(sortOrder) ? "Color" : "";
-                //ViewBag.BrandSortParm = String.IsNullOrEmpty(sortOrder) ? "Brand" : "";
-                //ViewBag.ModelSortParm = String.IsNullOrEmpty(sortOrder) ? "Model" : "";
-                //ViewBag.WheelsSortParm = String.IsNullOrEmpty(sortOrder) ? "Wheels" : "";
-                //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "CheckIn";
-                //ViewBag.TypeSortParm = String.IsNullOrEmpty(sortOrder) ? "Type" : "";
-
-                //if (searchparam != null)
-                //{
-                //    page = 1;
-                //}
-                //else
-                //{
-                //    searchparam = currentFilter;
-                //}
-                //ViewBag.currentFilter = searchparam;
-
-                //var parkedVehicles = from v in db.Vehicles select v;
-
-                //if (!String.IsNullOrEmpty(searchparam))
-                //{
-                //    parkedVehicles = parkedVehicles.Where(v => v.RegNumber.ToUpper().Contains(searchparam));
-
-
-            }
             switch (sortOrder)
             {
-                case "RegNumber":
-                    parkedVehicles = parkedVehicles.OrderByDescending(v => v.RegNumber);
+                case "RegNumber":        
+                        vehicleSort = vehicleSort.OrderBy(v => v.RegNumber);                                    
                     break;
                 case "Color":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.Color);
+                    vehicleSort = vehicleSort.OrderBy(v => v.Color);
                     break;
                 case "Brand":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.Brand);
+                    vehicleSort = vehicleSort.OrderBy(v => v.Brand);
                     break;
                 case "Model":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.Model);
+                    vehicleSort = vehicleSort.OrderBy(v => v.Model);
                     break;
                 case "Wheels":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.NumberOfWheels);
+                    vehicleSort = vehicleSort.OrderBy(v => v.NumberOfWheels);
                     break;
                 case "CheckIn":
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.CheckIn);
+                    vehicleSort = vehicleSort.OrderBy(v => v.CheckIn);
                     break;
                 case "Type":
-                    parkedVehicles = parkedVehicles.OrderByDescending(v => v.VehicleType);
+                    vehicleSort = vehicleSort.OrderByDescending(v => v.VehicleType);
                     break;
                 default:
-                    parkedVehicles = parkedVehicles.OrderBy(v => v.RegNumber);
+                    vehicleSort = vehicleSort.OrderBy(v => v.RegNumber);
                     break;
-
             }
-            int pageSize = 5;
+
             int pageNumber = (page = 1);
-            return View(parkedVehicles.ToPagedList(pageNumber, pageSize));
+            return View(vehicleSort);
+
+            // (pageNumber, pageSize));
+            //return View(Overview.ToPagedList(pageNumber, pageSize));
         }
 
 
@@ -104,7 +79,7 @@ namespace Garage_MVC_AmerAwras.Controllers
 
         // GET: ParkedVehicles/Create
 
-        public ActionResult Create()
+        public ActionResult Park()
         {
             var a = new Models.ParkedVehicle();
             DateTime d = DateTime.Now;
@@ -112,7 +87,6 @@ namespace Garage_MVC_AmerAwras.Controllers
             a.CheckIn = Convert.ToDateTime(sd);
 
             return View(a);
-
         }
 
         // POST: ParkedVehicles/Create
@@ -120,43 +94,19 @@ namespace Garage_MVC_AmerAwras.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType,NumberOfWheels")] ParkedVehicle parkedVehicle)
+        public ActionResult Park([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType,NumberOfWheels")] ParkedVehicle parkedVehicle)
         {
-            //db.Vehicles.Any(p => p.RegNumber == c);
-            //var no = db.Vehicles.FirstOrDefault(w => w.Id == );
-            //if (no == null)
 
             if (ModelState.IsValid)
             {
                 db.Vehicles.Add(parkedVehicle);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Overview");
             }
 
             return View(parkedVehicle);
-
-
-            // GET: ParkedVehicles/Edit/5
-            //public ActionResult Edit(int? id)
-            //{
-            //    if (id == null)
-            //    {
-            //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //    }
-            //    ParkedVehicle parkedVehicle = db.Vehicles.Find(id);
-            //    if (parkedVehicle == null)
-            //    {
-            //        return HttpNotFound();
-            //    }
-            //    return View(parkedVehicle);
-            //}
-
-            // POST: ParkedVehicles/Edit/5
-            // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-            // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 
         }
         [HttpPost]
@@ -167,7 +117,7 @@ namespace Garage_MVC_AmerAwras.Controllers
             {
                 db.Entry(parkedVehicle).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Overview");
             }
             return View(parkedVehicle);
         }
@@ -178,13 +128,13 @@ namespace Garage_MVC_AmerAwras.Controllers
             if (id == null)
             {
 
-                return RedirectToAction("index");
+                return RedirectToAction("Overview");
             }
             ParkedVehicle v = db.Vehicles.Find(id);
 
             if (v == null)
             {
-                return RedirectToAction("index");
+                return RedirectToAction("Overview");
             }
 
             VehicleCheckOut vehicle = new VehicleCheckOut(v.Id, v.RegNumber, v.CheckIn, DateTime.Now);
@@ -193,8 +143,6 @@ namespace Garage_MVC_AmerAwras.Controllers
                 return HttpNotFound();
             }
             return View(vehicle);
-
-
 
         }
 
@@ -224,7 +172,6 @@ namespace Garage_MVC_AmerAwras.Controllers
             }
             base.Dispose(disposing);
         }
-   
 
         //GaragePage
         public ActionResult GaragePage()
@@ -233,35 +180,38 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             return View();
         }
+
+        //About
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        //Contact
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Search(string SearchTerm)
+        {
+
+            var vehicleSort =
+                db.Vehicles
+                .Where(v => (SearchTerm == "" || v.RegNumber.StartsWith(SearchTerm)));
+
+          //  var parkedVehicles = from v in db.Vehicles select v;
+
+            if (!String.IsNullOrEmpty(SearchTerm))
+            {
+                vehicleSort = vehicleSort.Where(v => v.RegNumber.ToUpper().Contains(SearchTerm) || v.Color.ToUpper().Contains(SearchTerm) || v.Model.ToUpper().Contains(SearchTerm) ||
+                v.NumberOfWheels.ToString().Contains(SearchTerm));
+            }
+            return View("Overview");
+        }
     }
 }
-//About
-//public ActionResult About()
-//{
-//    ViewBag.Message = "Your application description page.";
-
-//    return View();
-//}
-
-//Contact
-//public ActionResult Contact()
-//{
-//    ViewBag.Message = "Your contact page.";
-
-//    return View();
-//}
-
-////Overview
-//public ActionResult Overview()
-//{
-//    ViewBag.Message = "Your OverView page for all Vehicle.";
-
-//    return View(db.Vehicles.ToList());
-//}
-//public ActionResult GetSearchRecord(string searchText)
-//{
-// //   List<ParkedVehicle> list = db.Vehicles.Where(x=> x.RegNumber.Contains(searchText)|| x.Color.Contains(searchText)).Select(x => new ParkedVehicle { VehicleType = x.VehicleType, RegNumber = x.RegNumber, Model = x.Model, Color = x.Color }).ToList();
-//    return PartialView("SearchPartial", list);
-//}
-//    }
-//}
