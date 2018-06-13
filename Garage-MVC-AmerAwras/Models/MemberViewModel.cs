@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Garage_MVC_AmerAwras.Models
 {
-    public class MemberModel
+    public class MemberViewModel
     {
         public int MemberId { get; set; }
         public string FirstName { get; set; }
@@ -14,7 +14,7 @@ namespace Garage_MVC_AmerAwras.Models
         public string FullName { get; set; }
 
 
-        public MemberModel(Member member)
+        public MemberViewModel(Member member)
         {
             MemberId = member.MemberId;
             FirstName = member.FirstName;

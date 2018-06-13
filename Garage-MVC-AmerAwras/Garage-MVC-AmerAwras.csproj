@@ -290,63 +290,22 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\MembersController.cs" />
-    <Compile Include="Controllers\ParkedVehicles1Controller.cs" />
     <Compile Include="Controllers\ParkedVehiclesController.cs" />
     <Compile Include="DataAccessLayer\GarageContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805220937445_Init.cs" />
-    <Compile Include="Migrations\201805220937445_Init.Designer.cs">
-      <DependentUpon>201805220937445_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201806130816171_Init.cs" />
+    <Compile Include="Migrations\201806130816171_Init.Designer.cs">
+      <DependentUpon>201806130816171_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805231049410_Wheels.cs" />
-    <Compile Include="Migrations\201805231049410_Wheels.Designer.cs">
-      <DependentUpon>201805231049410_Wheels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805231102124_w40.cs" />
-    <Compile Include="Migrations\201805231102124_w40.Designer.cs">
-      <DependentUpon>201805231102124_w40.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805231110383_WheelstoTable.cs" />
-    <Compile Include="Migrations\201805231110383_WheelstoTable.Designer.cs">
-      <DependentUpon>201805231110383_WheelstoTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805281145418_Price.cs" />
-    <Compile Include="Migrations\201805281145418_Price.Designer.cs">
-      <DependentUpon>201805281145418_Price.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805281222050_totalPrice.cs" />
-    <Compile Include="Migrations\201805281222050_totalPrice.Designer.cs">
-      <DependentUpon>201805281222050_totalPrice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805281312123_tp.cs" />
-    <Compile Include="Migrations\201805281312123_tp.Designer.cs">
-      <DependentUpon>201805281312123_tp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805281317073_stringtotal.cs" />
-    <Compile Include="Migrations\201805281317073_stringtotal.Designer.cs">
-      <DependentUpon>201805281317073_stringtotal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805291016069_decSum.cs" />
-    <Compile Include="Migrations\201805291016069_decSum.Designer.cs">
-      <DependentUpon>201805291016069_decSum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806120818060_upsys.cs" />
-    <Compile Include="Migrations\201806120818060_upsys.Designer.cs">
-      <DependentUpon>201806120818060_upsys.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806121210554_member.cs" />
-    <Compile Include="Migrations\201806121210554_member.Designer.cs">
-      <DependentUpon>201806121210554_member.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806121252537_mp.cs" />
-    <Compile Include="Migrations\201806121252537_mp.Designer.cs">
-      <DependentUpon>201806121252537_mp.cs</DependentUpon>
+    <Compile Include="Migrations\201806130846097_Init3.cs" />
+    <Compile Include="Migrations\201806130846097_Init3.Designer.cs">
+      <DependentUpon>201806130846097_Init3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
-    <Compile Include="Models\MemberModel.cs" />
+    <Compile Include="Models\MemberViewModel.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
     <Compile Include="Models\ParkedVehicleModel.cs" />
     <Compile Include="Models\Receipt.cs" />
@@ -412,11 +371,6 @@
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Create.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Delete.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Details.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Edit.cshtml" />
-    <Content Include="Views\ParkedVehicles1\Index.cshtml" />
     <None Include="Views\ParkedVehicles\Overview.cshtml" />
     <Content Include="Views\Shared\SearchPartial.cshtml" />
   </ItemGroup>
@@ -437,41 +391,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805220937445_Init.resx">
-      <DependentUpon>201805220937445_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806130816171_Init.resx">
+      <DependentUpon>201806130816171_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805231049410_Wheels.resx">
-      <DependentUpon>201805231049410_Wheels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805231102124_w40.resx">
-      <DependentUpon>201805231102124_w40.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805231110383_WheelstoTable.resx">
-      <DependentUpon>201805231110383_WheelstoTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805281145418_Price.resx">
-      <DependentUpon>201805281145418_Price.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805281222050_totalPrice.resx">
-      <DependentUpon>201805281222050_totalPrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805281312123_tp.resx">
-      <DependentUpon>201805281312123_tp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805281317073_stringtotal.resx">
-      <DependentUpon>201805281317073_stringtotal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805291016069_decSum.resx">
-      <DependentUpon>201805291016069_decSum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806120818060_upsys.resx">
-      <DependentUpon>201806120818060_upsys.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806121210554_member.resx">
-      <DependentUpon>201806121210554_member.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806121252537_mp.resx">
-      <DependentUpon>201806121252537_mp.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806130846097_Init3.resx">
+      <DependentUpon>201806130846097_Init3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

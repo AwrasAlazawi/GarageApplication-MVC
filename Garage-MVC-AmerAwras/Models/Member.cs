@@ -29,7 +29,8 @@ namespace Garage_MVC_AmerAwras.Models
         [DisplayName("Mobile Number")]
         public string PhoneNr { get; set; }
 
-       public virtual ParkedVehicle ParkedVehicles { get; set; }
+
+       public virtual ICollection<ParkedVehicle>  ParkedVehicles { get; set; }
 
 
     }
