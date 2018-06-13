@@ -14,8 +14,9 @@ namespace Garage_MVC_AmerAwras.Models
         public DateTime CheckOut { get; set; }
         public DateTime ParkedTime { get; set; }
         public decimal TotalPrice { get; set; }
+        public string MemberFullName { get; set; }
 
-        public Receipt(int id, string regnum , int typeId, DateTime checkOut, DateTime parkedTime, Decimal totalPrice)
+        public Receipt(int id, string regnum , int typeId, DateTime checkOut, DateTime parkedTime, Decimal totalPrice, string memberName)
         {
             Id = id;
             RegNum = regnum;
@@ -23,6 +24,7 @@ namespace Garage_MVC_AmerAwras.Models
             CheckOut = checkOut;
             ParkedTime = parkedTime;
             TotalPrice = totalPrice;
+            MemberFullName = memberName;
 
         }
         

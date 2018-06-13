@@ -119,7 +119,7 @@ namespace Garage_MVC_AmerAwras.Controllers
         {
             DateTime checkOutTime = DateTime.Now;
            // int price = 25;
-            decimal sum = 1;
+            decimal totalPrice = 1;
            
             if (id == null)
             {
