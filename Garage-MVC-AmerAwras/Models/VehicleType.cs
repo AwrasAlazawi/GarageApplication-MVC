@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace Garage_MVC_AmerAwras.Models
 {
 
-       public enum VehicleType
+       public class VehicleType
     {
-        Car,
-        Bus,
-        Boat,
-        Motorcycle,
-        Airplane
+        [Key]
+        public int TypeId { get; set; }
+
+        public string VehicleTypeName { get; set; }
+
+        public virtual ParkedVehicle ParkedVehicles { get; set; }
+
     }
 
 }

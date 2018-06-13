@@ -46,9 +46,10 @@ namespace Garage_MVC_AmerAwras.Models
 
 
         public int MemberId { get; set; }
+        
         public virtual ICollection<Member> Members { get; set; }
-
-
+        public int TypeId { get; set; }
+        public virtual ICollection<VehicleType> VehicleTypes { get; set; }
     }
 
 }
