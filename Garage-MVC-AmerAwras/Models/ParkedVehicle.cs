@@ -42,7 +42,7 @@ namespace Garage_MVC_AmerAwras.Models
         [DisplayName("Time Checked In")]
         public DateTime CheckIn { get; set; }
 
-        public string Fullname { get; set; }
+       // public string Fullname { get; set; }
 
 
         public int MemberId { get; set; }

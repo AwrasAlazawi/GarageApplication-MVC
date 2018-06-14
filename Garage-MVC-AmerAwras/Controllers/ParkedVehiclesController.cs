@@ -58,7 +58,6 @@ namespace Garage_MVC_AmerAwras.Controllers
         }
 
 
-
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id)
         {
@@ -108,14 +107,14 @@ namespace Garage_MVC_AmerAwras.Controllers
             return View(parkedVehicle);
         }
 
-      
+
         // GET: ParkedVehicles/Delete/5
         public ActionResult Delete(int? id)
         {
             DateTime checkOutTime = DateTime.Now;
-           // int price = 25;
+            // int price = 25;
             decimal sum = 1;
-           
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -125,26 +124,25 @@ namespace Garage_MVC_AmerAwras.Controllers
             {
                 return HttpNotFound();
             }
-            
+
             TimeSpan totalTime = checkOutTime - parkedVehicle.CheckIn;
 
             if (totalTime.Days == 0)
             {
-                if (totalTime.Hours <=1 && totalTime.Minutes <=60)
-                    {
+                if (totalTime.Hours <= 1 && totalTime.Minutes <= 60)
+                {
                     sum = 25;
                 }
-               // else sum = totalTime.Hours * parkedVehicle.PricePerHour;
+                
             }
-            else {
+            else
+            {
                 decimal hours = Convert.ToDecimal(totalTime.TotalDays * 24);
                 decimal totalhours = hours + totalTime.Hours;
-               // sum = totalhours * parkedVehicle.PricePerHour;    
+                
             }
-           
-           //parkedVehicle.CheckOut = checkOutTime;
-           //parkedVehicle.TotalTime = string.Format("{0:%d} days {0:%h} hours {0:%m} minutes", totalTime).ToString();
-           // parkedVehicle.Sum = sum;
+
+            
 
             return View(parkedVehicle);
         }
@@ -172,11 +170,11 @@ namespace Garage_MVC_AmerAwras.Controllers
         //GaragePage
         public ActionResult GaragePage()
         {
-            
+
             return View();
         }
         //About
-       
+
 
         //Contact
         public ActionResult Contact()
@@ -191,12 +189,12 @@ namespace Garage_MVC_AmerAwras.Controllers
             return View(temp);
         }
 
-      
-      
+
+
     }
 }
 
-  
 
-   
+
+
 

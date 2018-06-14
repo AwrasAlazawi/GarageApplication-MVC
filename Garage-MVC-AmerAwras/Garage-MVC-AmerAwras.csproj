@@ -299,6 +299,14 @@
     <Compile Include="Migrations\201806141226086_JohnTest.Designer.cs">
       <DependentUpon>201806141226086_JohnTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806141250534_fixolof.cs" />
+    <Compile Include="Migrations\201806141250534_fixolof.Designer.cs">
+      <DependentUpon>201806141250534_fixolof.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141320179_fix2Olof.cs" />
+    <Compile Include="Migrations\201806141320179_fix2Olof.Designer.cs">
+      <DependentUpon>201806141320179_fix2Olof.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\MemberViewModel.cs" />
@@ -356,7 +364,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\ParkedVehicles\Contact.cshtml" />
     <Content Include="Views\ParkedVehicles\Create.cshtml" />
-    <Content Include="Views\ParkedVehicles\Delete.cshtml" />
     <Content Include="Views\ParkedVehicles\Details.cshtml" />
     <Content Include="Views\ParkedVehicles\Edit.cshtml" />
     <Content Include="Views\ParkedVehicles\Index.cshtml" />
@@ -368,6 +375,7 @@
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Shared\SearchPartial.cshtml" />
     <Content Include="Views\ParkedVehicles\Overview.cshtml" />
+    <Content Include="Views\ParkedVehicles\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -388,6 +396,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806141226086_JohnTest.resx">
       <DependentUpon>201806141226086_JohnTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141250534_fixolof.resx">
+      <DependentUpon>201806141250534_fixolof.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141320179_fix2Olof.resx">
+      <DependentUpon>201806141320179_fix2Olof.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

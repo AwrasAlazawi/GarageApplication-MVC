@@ -4,74 +4,63 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Check Out Vehicle</h2>
-
+<h2>Delete</h2>
 
 <div>
-    
+    <h4>Receipt</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.RegNumber)
+            @Html.DisplayNameFor(model => model.RegNum)
         </dt>
+
         <dd>
-            @Html.DisplayFor(model => model.RegNumber)
+            @Html.DisplayFor(model => model.RegNum)
         </dd>
-        <br />
-        <dt>
-            @Html.DisplayNameFor(model => model.VehicleType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.VehicleType)
-        </dd>
-        <br />
-        <dt>
-            @Html.DisplayNameFor(model => model.CheckIn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CheckIn)
-        </dd>
-        <br />
+
         <dt>
             @Html.DisplayNameFor(model => model.CheckOut)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.CheckOut)
         </dd>
-        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Checkin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Checkin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkedTime)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.TotalTime)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.TotalTime)
         </dd>
-        <br />
+
         <dt>
-            @Html.DisplayNameFor(model => model.Sum)
+            @Html.DisplayNameFor(model => model.TotalPrice)
         </dt>
+
         <dd>
-            @Html.DisplayFor(model => model.Sum)
+            @Html.DisplayFor(model => model.TotalPrice)
         </dd>
-        <br />
-        @*<dt>
-            @Html.DisplayNameFor(model => model.NumberOfWheels)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfWheels)
-        </dd>*@
-
-
 
     </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-    <div class="form-actions no-color">
-        <input type="submit" value="Check Out" class="btn btn-default" />
-        <input type="button" value="Print Receipt" class="btn btn-primary"  onclick="window.print();" />
-        @Html.ActionLink("Back to Parked Page", "Index")
-    </div>
-    }
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
