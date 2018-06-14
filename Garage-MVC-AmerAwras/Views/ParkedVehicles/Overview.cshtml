@@ -4,38 +4,58 @@
     ViewBag.Title = "Overview";
 }
 
-<h2>Overview for all vehicle</h2>
+<h2>Overview.</h2>
 
+@using (Html.BeginForm("Search", "ParkedVehicles", FormMethod.Post))
+{
+    @Html.TextBox("search")
+<button class="btn btn-default" type="submit" value="Search"><i class="glyphicon glyphicon-search"></i></button>
 
+}
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.RegNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Brand)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.VehicleType)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckIn)
+        </th>
+        
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Members.LastName)
+        </th>   
+        <th></th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Brand)
-        </td>
-         <td>
-            @Html.DisplayFor(modelItem => item.VehicleType)
-        </td>
-        <td>
-            @Html.ActionLink("Detail-view", "Details", new { id = item.Id })
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegNumber)
             </td>
-    </tr>
-}
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleType.VehicleTypeName)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckIn)
+            </td>
+
+            <td>@Html.DisplayFor(modelItem => item.Members.LastName)</td>
+
+            <td></td>
+            
+
+            <td>
+                @Html.ActionLink("Detail-view", "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

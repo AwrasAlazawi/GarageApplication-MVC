@@ -35,11 +35,11 @@ namespace Garage_MVC_AmerAwras.Controllers
             }
 
 
-            List<ParkedVehicleModel> iv = new List<ParkedVehicleModel>();
+            List<ParkedVehicleViewModel> iv = new List<ParkedVehicleViewModel>();
             foreach (ParkedVehicle e in parkedVehicle.ToList())
 
             {
-                iv.Add(new ParkedVehicleModel(e));
+                iv.Add(new ParkedVehicleViewModel(e));
             }
             return View(iv);
         }
@@ -47,11 +47,11 @@ namespace Garage_MVC_AmerAwras.Controllers
         public ActionResult Search(string search)
         {
 
-            List<ParkedVehicleModel> parkedSearch = new List<ParkedVehicleModel>();
+            List<ParkedVehicleViewModel> parkedSearch = new List<ParkedVehicleViewModel>();
 
             foreach (ParkedVehicle e in db.Vehicles.Where(s => s.RegNumber.Contains(search) || s.Color.Contains(search)).ToList())
             {
-                parkedSearch.Add(new ParkedVehicleModel(e));
+                parkedSearch.Add(new ParkedVehicleViewModel(e));
             }
 
             return View("Index", parkedSearch);
@@ -172,15 +172,11 @@ namespace Garage_MVC_AmerAwras.Controllers
         //GaragePage
         public ActionResult GaragePage()
         {
-            ViewBag.Message = "Welcome To Garage Application 2.0";
-
+            
             return View();
         }
         //About
-        public ActionResult About()
-        {
-              return View();
-        }
+       
 
         //Contact
         public ActionResult Contact()
@@ -191,10 +187,11 @@ namespace Garage_MVC_AmerAwras.Controllers
         //Overview
         public ActionResult Overview()
         {
-            ViewBag.Message = "Your OverView page for all Vehicle.";
-
-            return View(db.Vehicles.ToList());
+            var temp = db.Vehicles.ToList();
+            return View(temp);
         }
+
+      
       
     }
 }

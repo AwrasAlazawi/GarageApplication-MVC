@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Garage_MVC_AmerAwras.Models
 {
-    public class ParkedVehicleModel
+    public class ParkedVehicleViewModel
     {
         public int Id { get; set; }
+        [DisplayName("Type of Vehicle")]
         public VehicleType VehicleType { get; set; }
         public string RegNumber { get; set; }
         public string Color { get; set; }
@@ -15,7 +18,8 @@ namespace Garage_MVC_AmerAwras.Models
         public DateTime CheckIn { get; set; }
 
 
-        public ParkedVehicleModel(ParkedVehicle parkedVehicle)
+
+        public ParkedVehicleViewModel(ParkedVehicle parkedVehicle)
         {
             Id = parkedVehicle.Id;
             VehicleType = parkedVehicle.VehicleType;
@@ -25,5 +29,7 @@ namespace Garage_MVC_AmerAwras.Models
             CheckIn = parkedVehicle.CheckIn;
         }
 
+
     }
 }
+   

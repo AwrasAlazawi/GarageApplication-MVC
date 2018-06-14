@@ -9,12 +9,11 @@ namespace Garage_MVC_AmerAwras.Models
 
        public class VehicleType
     {
-        [Key]
-        public int TypeId { get; set; }
+        public int Id { get; set; }
 
         public string VehicleTypeName { get; set; }
 
-        public virtual ParkedVehicle ParkedVehicles { get; set; }
+        public virtual IEnumerable<ParkedVehicle> ParkedVehicles { get; set; }
 
     }
 
