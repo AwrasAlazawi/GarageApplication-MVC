@@ -7,13 +7,13 @@ namespace Garage_MVC_AmerAwras.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Init : IMigrationMetadata
+    public sealed partial class fixxOlof : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fixxOlof));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806140823555_Init"; }
+            get { return "201806141447562_fixxOlof"; }
         }
         
         string IMigrationMetadata.Source

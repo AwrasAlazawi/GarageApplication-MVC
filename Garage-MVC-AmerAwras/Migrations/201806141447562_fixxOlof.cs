@@ -3,7 +3,7 @@ namespace Garage_MVC_AmerAwras.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class JohnTest : DbMigration
+    public partial class fixxOlof : DbMigration
     {
         public override void Up()
         {
@@ -24,13 +24,12 @@ namespace Garage_MVC_AmerAwras.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        RegNumber = c.String(nullable: false, maxLength: 8),
+                        Regnr = c.String(nullable: false, maxLength: 8),
                         Color = c.String(nullable: false, maxLength: 20),
                         Brand = c.String(nullable: false, maxLength: 20),
                         Model = c.String(nullable: false, maxLength: 20),
                         NumberOfWheels = c.Int(nullable: false),
                         CheckIn = c.DateTime(nullable: false),
-                        Fullname = c.String(),
                         MemberId = c.Int(nullable: false),
                         VehicleTypeId = c.Int(nullable: false),
                     })

@@ -26,12 +26,12 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             if (sortOrder == "Ascending")
             {
-                parkedVehicle = parkedVehicle.OrderBy(s => s.RegNumber).ToList();
+                parkedVehicle = parkedVehicle.OrderBy(s => s.Regnr).ToList();
             }
 
             else if (sortOrder == "Descending")
             {
-                parkedVehicle = parkedVehicle.OrderByDescending(s => s.RegNumber).ToList();
+                parkedVehicle = parkedVehicle.OrderByDescending(s => s.Regnr).ToList();
             }
 
 
@@ -49,7 +49,7 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             List<ParkedVehicleViewModel> parkedSearch = new List<ParkedVehicleViewModel>();
 
-            foreach (ParkedVehicle e in db.Vehicles.Where(s => s.RegNumber.Contains(search) || s.Color.Contains(search)).ToList())
+            foreach (ParkedVehicle e in db.Vehicles.Where(s => s.Regnr.Contains(search) || s.Color.Contains(search)).ToList())
             {
                 parkedSearch.Add(new ParkedVehicleViewModel(e));
             }
@@ -108,54 +108,48 @@ namespace Garage_MVC_AmerAwras.Controllers
         }
 
 
+
         // GET: ParkedVehicles/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Checkout(int? id)
         {
-            DateTime checkOutTime = DateTime.Now;
-            // int price = 25;
-            decimal sum = 1;
 
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                return RedirectToAction("Overview");
             }
-            ParkedVehicle parkedVehicle = db.Vehicles.Find(id);
-            if (parkedVehicle == null)
+            ParkedVehicle v = db.Vehicles.Find(id);
+
+            if (v == null)
+            {
+                return RedirectToAction("Overview");
+            }
+
+            VehicleCheckOut vehicle = new VehicleCheckOut(v.Id, v.Regnr, DateTime.Today, DateTime.Now);
+            if (vehicle == null)
             {
                 return HttpNotFound();
             }
+            return View(vehicle);
 
-            TimeSpan totalTime = checkOutTime - parkedVehicle.CheckIn;
-
-            if (totalTime.Days == 0)
-            {
-                if (totalTime.Hours <= 1 && totalTime.Minutes <= 60)
-                {
-                    sum = 25;
-                }
-                
-            }
-            else
-            {
-                decimal hours = Convert.ToDecimal(totalTime.TotalDays * 24);
-                decimal totalhours = hours + totalTime.Hours;
-                
-            }
-
-            
-
-            return View(parkedVehicle);
         }
 
         // POST: ParkedVehicles/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+
+        public ActionResult VehicleReceipt(int id)
         {
-            ParkedVehicle parkedVehicle = db.Vehicles.Find(id);
-            db.Vehicles.Remove(parkedVehicle);
+            ParkedVehicle v = db.Vehicles.Find(id);
+            if (v == null)
+            {
+                return HttpNotFound();
+            }
+            db.Vehicles.Remove(v);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            VehicleReceipt info = new VehicleReceipt(v.Id, v.Regnr, v.Model, v.CheckIn, DateTime.Now);
+            return View(info);
         }
 
         protected override void Dispose(bool disposing)
@@ -188,8 +182,6 @@ namespace Garage_MVC_AmerAwras.Controllers
             var temp = db.Vehicles.ToList();
             return View(temp);
         }
-
-
 
     }
 }

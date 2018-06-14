@@ -1,0 +1,68 @@
+﻿@model Garage_MVC_AmerAwras.Models.VehicleCheckOut
+
+    @{
+        ViewBag.Title = "Checkout";
+    }
+
+    <h2>Checkout</h2>
+
+    <div>
+        <h4>Receipt</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Regnr)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Regnr)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.VehicleType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VehicleType)
+            </dd>
+          
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CheckIn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CheckIn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NowTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NowTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalTime)
+            </dd>
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+

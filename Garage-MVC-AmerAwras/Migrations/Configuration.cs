@@ -44,7 +44,7 @@ namespace Garage_MVC_AmerAwras.Migrations
             var vehicle = new[]
             {
                 new ParkedVehicle (){
-                RegNumber = "AAA123",
+                Regnr = "AAA123",
                 Color = "Silver",
                 Brand = "BMW",
                 Model = "BMW 303",
@@ -58,7 +58,7 @@ namespace Garage_MVC_AmerAwras.Migrations
 
                 new ParkedVehicle()
                 {
-                RegNumber = "BBB321",
+                Regnr = "BBB321",
                 Color = "Purple",
                 Brand = "Husqvarna",
                 Model = "5000",
@@ -71,7 +71,7 @@ namespace Garage_MVC_AmerAwras.Migrations
 
                 new ParkedVehicle()
                 {
-                RegNumber = "CCC999",
+                Regnr = "CCC999",
                 Color = "Yellow",
                 Brand = "Saab",
                 Model = "900",
@@ -83,7 +83,7 @@ namespace Garage_MVC_AmerAwras.Migrations
                 }
             };
         
-            context.Vehicles.AddOrUpdate(t => t.RegNumber, vehicle);
+            context.Vehicles.AddOrUpdate(t => t.Regnr, vehicle);
             context.SaveChanges();            
 
 

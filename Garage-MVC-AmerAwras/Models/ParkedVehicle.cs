@@ -16,7 +16,7 @@ namespace Garage_MVC_AmerAwras.Models
         [StringLength(8)]
         [MinLength(3)]
         [DisplayName("Registration Number")]
-        public string RegNumber { get; set; }
+        public string Regnr { get; set; }
 
         [Required(ErrorMessage = "Please insert a valid color , Maximum 20 letters")]
         [StringLength(20)]

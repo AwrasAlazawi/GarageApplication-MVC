@@ -12,7 +12,7 @@ namespace Garage_MVC_AmerAwras.Models
         public int Id { get; set; }
         [DisplayName("Type of Vehicle")]
         public VehicleType VehicleType { get; set; }
-        public string RegNumber { get; set; }
+        public string Regnr { get; set; }
         public string Color { get; set; }
         public string Brand { get; set; }
         public DateTime CheckIn { get; set; }
@@ -23,7 +23,7 @@ namespace Garage_MVC_AmerAwras.Models
         {
             Id = parkedVehicle.Id;
             VehicleType = parkedVehicle.VehicleType;
-            RegNumber = parkedVehicle.RegNumber;
+            Regnr = parkedVehicle.Regnr;
             Color = parkedVehicle.Color;
             Brand = parkedVehicle.Brand;
             CheckIn = parkedVehicle.CheckIn;

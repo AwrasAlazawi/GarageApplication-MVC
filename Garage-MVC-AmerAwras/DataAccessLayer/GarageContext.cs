@@ -17,7 +17,6 @@ namespace Garage_MVC_AmerAwras.DataAccessLayer
 
         public DbSet<Models.Member> Members { get; set; }
         public DbSet<Models.VehicleType> VehicleType { get; set; }
-
-        public System.Data.Entity.DbSet<Garage_MVC_AmerAwras.Models.Receipt> Receipts { get; set; }
+        
     }
 }
