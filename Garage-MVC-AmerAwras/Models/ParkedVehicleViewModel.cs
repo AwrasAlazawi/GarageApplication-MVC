@@ -15,6 +15,7 @@ namespace Garage_MVC_AmerAwras.Models
         public string Regnr { get; set; }
         public string Color { get; set; }
         public string Brand { get; set; }
+        [DisplayName("Check in Time")]
         public DateTime CheckIn { get; set; }
 
 

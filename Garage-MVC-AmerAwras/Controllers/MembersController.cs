@@ -21,6 +21,20 @@ namespace Garage_MVC_AmerAwras.Controllers
             return View(db.Members.ToList());
         }
 
+
+        public ActionResult Search(string search)
+        {
+
+            List<Member> searchMember = new List<Member>();
+
+            foreach (Member e in db.Members.Where(e => e.LastName.Contains(search) || e.FirstName.Contains(search)))
+            {
+                searchMember.Add(new Member());
+            }
+
+            return View("Index", searchMember);
+        }
+
         // GET: Members/Details/5
         public ActionResult Details(int? id)
         {

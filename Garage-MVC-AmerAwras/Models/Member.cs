@@ -9,6 +9,9 @@ namespace Garage_MVC_AmerAwras.Models
 {
     public class Member
     {
+        
+
+
         public int MemberId { get; set; }
 
         [Required]
@@ -22,6 +25,8 @@ namespace Garage_MVC_AmerAwras.Models
         [DisplayName("Email")]
         public string Email { get; set; }
 
+        public VehicleType VehicleType { get; set; }
+
 
         [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Phone Number Required!")]
@@ -29,7 +34,7 @@ namespace Garage_MVC_AmerAwras.Models
         [DisplayName("Mobile Number")]
         public string PhoneNr { get; set; }
 
-       public virtual IEnumerable<ParkedVehicle> ParkedVehicles { get; set; }
+        public virtual IEnumerable<ParkedVehicle> ParkedVehicles { get; set; }
 
 
     }

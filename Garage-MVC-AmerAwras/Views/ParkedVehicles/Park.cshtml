@@ -5,7 +5,7 @@
 }
 
 
-<h2>Park a vehicle.</h2>
+<h2>Park your vehicle.</h2>
 
 @using (Html.BeginForm())
 {
@@ -23,19 +23,12 @@
         </div>
     </div>
 
+   
     <div class="form-group">
-        @Html.LabelFor(model => model, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Regnr, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.RegNumber, new { htmlAttributes = new { @class = "form-control", @id = "RegN" } })
-            @Html.ValidationMessageFor(model => model.RegNumber, "", new { @class = "text-danger" })
-            <span hidden id="spanReg"><input id="idreg" type="text" value="" /></span>
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.RegNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.RegNumber, new { htmlAttributes = new { @class = "form-control", @id = "RegN" } })
-            @Html.ValidationMessageFor(model => model.RegNumber, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Regnr, new { htmlAttributes = new { @class = "form-control", @id = "RegN" } })
+            @Html.ValidationMessageFor(model => model.Regnr, "", new { @class = "text-danger" })
             <span hidden id="spanReg"><input id="idreg" type="text" value="" /></span>
         </div>
     </div>
@@ -77,12 +70,13 @@
             @Html.ValidationMessageFor(model => model.VehicleType, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="form-group">
+    <form>
+        <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
+</form>
 </div>
 }
 

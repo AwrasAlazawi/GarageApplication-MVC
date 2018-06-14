@@ -295,13 +295,37 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141447562_fixxOlof.cs" />
-    <Compile Include="Migrations\201806141447562_fixxOlof.Designer.cs">
-      <DependentUpon>201806141447562_fixxOlof.cs</DependentUpon>
+    <Compile Include="Migrations\201806141635330_Homemember.cs" />
+    <Compile Include="Migrations\201806141635330_Homemember.Designer.cs">
+      <DependentUpon>201806141635330_Homemember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141651233_difvehicle.cs" />
+    <Compile Include="Migrations\201806141651233_difvehicle.Designer.cs">
+      <DependentUpon>201806141651233_difvehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141701292_checkouttype.cs" />
+    <Compile Include="Migrations\201806141701292_checkouttype.Designer.cs">
+      <DependentUpon>201806141701292_checkouttype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141704040_checkout.cs" />
+    <Compile Include="Migrations\201806141704040_checkout.Designer.cs">
+      <DependentUpon>201806141704040_checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141744067_vehicletypemember.cs" />
+    <Compile Include="Migrations\201806141744067_vehicletypemember.Designer.cs">
+      <DependentUpon>201806141744067_vehicletypemember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141757418_membervehicler.cs" />
+    <Compile Include="Migrations\201806141757418_membervehicler.Designer.cs">
+      <DependentUpon>201806141757418_membervehicler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141844153_searchmember.cs" />
+    <Compile Include="Migrations\201806141844153_searchmember.Designer.cs">
+      <DependentUpon>201806141844153_searchmember.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
-    <Compile Include="Models\MemberViewModel.cs" />
+    <Compile Include="Models\MembersViewModel.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
     <Compile Include="Models\ParkedVehicleViewModel.cs" />
     <Compile Include="Models\VehicleCheckOut.cs" />
@@ -356,19 +380,18 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\ParkedVehicles\Contact.cshtml" />
-    <Content Include="Views\ParkedVehicles\Create.cshtml" />
+    <Content Include="Views\ParkedVehicles\Park.cshtml" />
     <Content Include="Views\ParkedVehicles\Details.cshtml" />
-    <Content Include="Views\ParkedVehicles\Edit.cshtml" />
     <Content Include="Views\ParkedVehicles\Index.cshtml" />
     <Content Include="Views\ParkedVehicles\GaragePage.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\Members\Delete.cshtml" />
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
-    <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Shared\SearchPartial.cshtml" />
     <Content Include="Views\ParkedVehicles\Overview.cshtml" />
     <Content Include="Views\ParkedVehicles\Checkout.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -387,8 +410,26 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806141447562_fixxOlof.resx">
-      <DependentUpon>201806141447562_fixxOlof.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806141635330_Homemember.resx">
+      <DependentUpon>201806141635330_Homemember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141651233_difvehicle.resx">
+      <DependentUpon>201806141651233_difvehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141701292_checkouttype.resx">
+      <DependentUpon>201806141701292_checkouttype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141704040_checkout.resx">
+      <DependentUpon>201806141704040_checkout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141744067_vehicletypemember.resx">
+      <DependentUpon>201806141744067_vehicletypemember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141757418_membervehicler.resx">
+      <DependentUpon>201806141757418_membervehicler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141844153_searchmember.resx">
+      <DependentUpon>201806141844153_searchmember.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

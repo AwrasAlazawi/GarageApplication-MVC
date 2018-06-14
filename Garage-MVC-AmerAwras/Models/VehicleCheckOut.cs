@@ -13,11 +13,11 @@ namespace Garage_MVC_AmerAwras.Models
         {
 
         }
-        public VehicleCheckOut(int id, string regnr,DateTime checkIn, DateTime nowTime)
+        public VehicleCheckOut(int id, string regnr, VehicleType type,DateTime checkIn, DateTime nowTime)
         {
             Id = id;
             Regnr = regnr;
-           // VehicleType = vehicleType;
+            VehicleType = type;
             CheckIn = checkIn;
             NowTime = nowTime;
             TimeSpan ts = NowTime - CheckIn;
@@ -29,7 +29,8 @@ namespace Garage_MVC_AmerAwras.Models
 
         public int Id { get; private set; }
         public string Regnr { get; private set; }
-        public string VehicleType { get; private set; }
+        [Display(Name ="Type of Vehicle")]
+        public VehicleType VehicleType { get; private set; }
         [Display(Name = "Time Parked")]
         public DateTime CheckIn { get; private set; }
         [Display]

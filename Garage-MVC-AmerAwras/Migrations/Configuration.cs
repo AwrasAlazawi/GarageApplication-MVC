@@ -51,7 +51,7 @@ namespace Garage_MVC_AmerAwras.Migrations
                 NumberOfWheels = 4,
                 CheckIn = DateTime.Now,
                 MemberId = members[0].MemberId,              
-                VehicleTypeId = types[1].Id,
+                VehicleTypeId = types[0].Id,
 
                 },
 

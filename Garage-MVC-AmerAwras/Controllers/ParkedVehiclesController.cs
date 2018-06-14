@@ -75,9 +75,9 @@ namespace Garage_MVC_AmerAwras.Controllers
 
         // GET: ParkedVehicles/Create
 
-        public ActionResult Create()
+        public ActionResult Park()
         {
-            var a = new Models.ParkedVehicle();
+            var a = new ParkedVehicle();
             DateTime d = DateTime.Now;
             string sd = d.ToString("MM/dd/yyyy HH:mm");
             a.CheckIn = Convert.ToDateTime(sd);
@@ -91,11 +91,9 @@ namespace Garage_MVC_AmerAwras.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType,NumberOfWheels")] ParkedVehicle parkedVehicle)
+        public ActionResult Park([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType,NumberOfWheels")] ParkedVehicle parkedVehicle)
         {
-            //db.Vehicles.Any(p => p.RegNumber == c);
-            //var no = db.Vehicles.FirstOrDefault(w => w.Id == );
-            //if (no == null)
+          
 
             if (ModelState.IsValid)
             {
@@ -125,7 +123,7 @@ namespace Garage_MVC_AmerAwras.Controllers
                 return RedirectToAction("Overview");
             }
 
-            VehicleCheckOut vehicle = new VehicleCheckOut(v.Id, v.Regnr, DateTime.Today, DateTime.Now);
+            VehicleCheckOut vehicle = new VehicleCheckOut(v.Id, v.Regnr, v.VehicleType, DateTime.Today, DateTime.Now);
             if (vehicle == null)
             {
                 return HttpNotFound();
