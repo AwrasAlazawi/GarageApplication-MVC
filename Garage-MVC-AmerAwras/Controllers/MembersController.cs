@@ -24,15 +24,16 @@ namespace Garage_MVC_AmerAwras.Controllers
 
         public ActionResult Search(string search)
         {
+            var result = db.Members.Where(e => e.LastName.Contains(search) || e.FirstName.Contains(search));
 
-            List<Member> searchMember = new List<Member>();
+            //List<Member> searchMember = new List<Member>();
 
-            foreach (Member e in db.Members.Where(e => e.LastName.Contains(search) || e.FirstName.Contains(search)))
-            {
-                searchMember.Add(new Member());
-            }
+            //foreach (Member e in db.Members.Where(e => e.LastName.Contains(search) || e.FirstName.Contains(search)))
+            //{
+            //    searchMember.Add(new Member());
+            //}
 
-            return View("Index", searchMember);
+            return View("Index", result);
         }
 
         // GET: Members/Details/5

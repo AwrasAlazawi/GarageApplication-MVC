@@ -4,9 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Members</h2>
+<h2>Members.</h2>
 
-@using (Html.BeginForm("Index", "Members", FormMethod.Post))
+@using (Html.BeginForm("Search", "Members", FormMethod.Post))
 {
 <form method="post" action="index">
     @Html.TextBox("search")

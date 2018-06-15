@@ -52,20 +52,11 @@
     <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
-    <Reference Include="businesslogic, Version=1.0.6470.38240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\businesslogic.dll</HintPath>
-    </Reference>
     <Reference Include="ClientDependency.Core, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClientDependency.1.9.2\lib\net45\ClientDependency.Core.dll</HintPath>
     </Reference>
     <Reference Include="ClientDependency.Core.Mvc, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClientDependency-Mvc5.1.8.0.0\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="cms, Version=1.0.6470.38240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\cms.dll</HintPath>
-    </Reference>
-    <Reference Include="controls, Version=1.0.6470.38241, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\controls.dll</HintPath>
     </Reference>
     <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
       <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
@@ -91,12 +82,6 @@
     <Reference Include="ImageProcessor.Web, Version=4.8.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageProcessor.Web.4.8.3\lib\net45\ImageProcessor.Web.dll</HintPath>
     </Reference>
-    <Reference Include="interfaces, Version=1.0.6470.38233, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Log4Net.Async, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Log4Net.Async.2.0.4\lib\net40\Log4Net.Async.dll</HintPath>
     </Reference>
@@ -105,9 +90,6 @@
     </Reference>
     <Reference Include="MarkdownSharp, Version=1.14.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Markdown.1.14.7\lib\net45\MarkdownSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.1559.20655, Culture=neutral">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -161,17 +143,8 @@
     <Reference Include="Semver, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\semver.1.1.2\lib\net451\Semver.dll</HintPath>
     </Reference>
-    <Reference Include="SQLCE4Umbraco, Version=1.0.6470.38241, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\SQLCE4Umbraco.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\System.Data.SqlServerCe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\System.Data.SqlServerCe.Entity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -229,30 +202,6 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="TidyNet, Version=1.0.0.0, Culture=neutral">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\TidyNet.dll</HintPath>
-    </Reference>
-    <Reference Include="Umbraco.Core, Version=1.0.6470.38234, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\Umbraco.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="umbraco.DataLayer, Version=1.0.6470.38239, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\umbraco.DataLayer.dll</HintPath>
-    </Reference>
-    <Reference Include="umbraco.editorControls, Version=1.0.6470.38247, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\umbraco.editorControls.dll</HintPath>
-    </Reference>
-    <Reference Include="umbraco.MacroEngines, Version=1.0.6470.38247, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\umbraco.MacroEngines.dll</HintPath>
-    </Reference>
-    <Reference Include="umbraco.providers, Version=1.0.6470.38241, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\umbraco.providers.dll</HintPath>
-    </Reference>
-    <Reference Include="Umbraco.Web.UI, Version=1.0.6470.38248, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\Umbraco.Web.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UmbracoExamine, Version=0.7.0.38241, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\UmbracoExamine.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -295,33 +244,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141635330_Homemember.cs" />
-    <Compile Include="Migrations\201806141635330_Homemember.Designer.cs">
-      <DependentUpon>201806141635330_Homemember.cs</DependentUpon>
+    <Compile Include="Migrations\201806150658379_init.cs" />
+    <Compile Include="Migrations\201806150658379_init.Designer.cs">
+      <DependentUpon>201806150658379_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141651233_difvehicle.cs" />
-    <Compile Include="Migrations\201806141651233_difvehicle.Designer.cs">
-      <DependentUpon>201806141651233_difvehicle.cs</DependentUpon>
+    <Compile Include="Migrations\201806150821180_workingonmember.cs" />
+    <Compile Include="Migrations\201806150821180_workingonmember.Designer.cs">
+      <DependentUpon>201806150821180_workingonmember.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141701292_checkouttype.cs" />
-    <Compile Include="Migrations\201806141701292_checkouttype.Designer.cs">
-      <DependentUpon>201806141701292_checkouttype.cs</DependentUpon>
+    <Compile Include="Migrations\201806151104392_workingonmember3.cs" />
+    <Compile Include="Migrations\201806151104392_workingonmember3.Designer.cs">
+      <DependentUpon>201806151104392_workingonmember3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141704040_checkout.cs" />
-    <Compile Include="Migrations\201806141704040_checkout.Designer.cs">
-      <DependentUpon>201806141704040_checkout.cs</DependentUpon>
+    <Compile Include="Migrations\201806151108128_workingonmember4.cs" />
+    <Compile Include="Migrations\201806151108128_workingonmember4.Designer.cs">
+      <DependentUpon>201806151108128_workingonmember4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141744067_vehicletypemember.cs" />
-    <Compile Include="Migrations\201806141744067_vehicletypemember.Designer.cs">
-      <DependentUpon>201806141744067_vehicletypemember.cs</DependentUpon>
+    <Compile Include="Migrations\201806151112127_workingonmember5.cs" />
+    <Compile Include="Migrations\201806151112127_workingonmember5.Designer.cs">
+      <DependentUpon>201806151112127_workingonmember5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141757418_membervehicler.cs" />
-    <Compile Include="Migrations\201806141757418_membervehicler.Designer.cs">
-      <DependentUpon>201806141757418_membervehicler.cs</DependentUpon>
+    <Compile Include="Migrations\201806151152326_workingonmember8.cs" />
+    <Compile Include="Migrations\201806151152326_workingonmember8.Designer.cs">
+      <DependentUpon>201806151152326_workingonmember8.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141844153_searchmember.cs" />
-    <Compile Include="Migrations\201806141844153_searchmember.Designer.cs">
-      <DependentUpon>201806141844153_searchmember.cs</DependentUpon>
+    <Compile Include="Migrations\201806151205262_workingonmember9.cs" />
+    <Compile Include="Migrations\201806151205262_workingonmember9.Designer.cs">
+      <DependentUpon>201806151205262_workingonmember9.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
@@ -410,26 +359,26 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806141635330_Homemember.resx">
-      <DependentUpon>201806141635330_Homemember.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806150658379_init.resx">
+      <DependentUpon>201806150658379_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806141651233_difvehicle.resx">
-      <DependentUpon>201806141651233_difvehicle.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806150821180_workingonmember.resx">
+      <DependentUpon>201806150821180_workingonmember.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806141701292_checkouttype.resx">
-      <DependentUpon>201806141701292_checkouttype.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806151104392_workingonmember3.resx">
+      <DependentUpon>201806151104392_workingonmember3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806141704040_checkout.resx">
-      <DependentUpon>201806141704040_checkout.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806151108128_workingonmember4.resx">
+      <DependentUpon>201806151108128_workingonmember4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806141744067_vehicletypemember.resx">
-      <DependentUpon>201806141744067_vehicletypemember.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806151112127_workingonmember5.resx">
+      <DependentUpon>201806151112127_workingonmember5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806141757418_membervehicler.resx">
-      <DependentUpon>201806141757418_membervehicler.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806151152326_workingonmember8.resx">
+      <DependentUpon>201806151152326_workingonmember8.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806141844153_searchmember.resx">
-      <DependentUpon>201806141844153_searchmember.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806151205262_workingonmember9.resx">
+      <DependentUpon>201806151205262_workingonmember9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -3,7 +3,7 @@ namespace Garage_MVC_AmerAwras.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class vehicletypemember : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {

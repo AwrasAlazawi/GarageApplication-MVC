@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Garage_MVC_AmerAwras.Models
 {
@@ -47,9 +48,15 @@ namespace Garage_MVC_AmerAwras.Models
 
         public int MemberId { get; set; }
         public virtual Member Members { get; set; }
+
         public int VehicleTypeId { get; set; }
         [DisplayName("Type of Vehicle")]
         public virtual VehicleType VehicleType { get; set; }
+      
+
+
+        
+
     }
 
 }

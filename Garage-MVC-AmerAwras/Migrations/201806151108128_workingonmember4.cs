@@ -3,7 +3,7 @@ namespace Garage_MVC_AmerAwras.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class checkout : DbMigration
+    public partial class workingonmember4 : DbMigration
     {
         public override void Up()
         {

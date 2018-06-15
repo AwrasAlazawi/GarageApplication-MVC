@@ -11,7 +11,7 @@ namespace Garage_MVC_AmerAwras.Models
     {
         
 
-
+        [DisplayName("Member")]
         public int MemberId { get; set; }
 
         [Required]

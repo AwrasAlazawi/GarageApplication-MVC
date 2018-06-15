@@ -36,10 +36,10 @@ namespace Garage_MVC_AmerAwras.Controllers
 
 
             List<ParkedVehicleViewModel> iv = new List<ParkedVehicleViewModel>();
-            foreach (ParkedVehicle e in parkedVehicle.ToList())
+            foreach (ParkedVehicle e in parkedVehicle)
 
             {
-                iv.Add(new ParkedVehicleViewModel(e));
+                iv.Add(new ParkedVehicleViewModel());
             }
             return View(iv);
         }
@@ -51,7 +51,7 @@ namespace Garage_MVC_AmerAwras.Controllers
 
             foreach (ParkedVehicle e in db.Vehicles.Where(s => s.Regnr.Contains(search) || s.Color.Contains(search)).ToList())
             {
-                parkedSearch.Add(new ParkedVehicleViewModel(e));
+                parkedSearch.Add(new ParkedVehicleViewModel());
             }
 
             return View("Index", parkedSearch);
@@ -77,12 +77,19 @@ namespace Garage_MVC_AmerAwras.Controllers
 
         public ActionResult Park()
         {
-            var a = new ParkedVehicle();
-            DateTime d = DateTime.Now;
-            string sd = d.ToString("MM/dd/yyyy HH:mm");
-            a.CheckIn = Convert.ToDateTime(sd);
+            //var a = new ParkedVehicle();
+            //DateTime d = DateTime.Now;
+            //string sd = d.ToString("MM/dd/yyyy HH:mm");
+            //a.CheckIn = Convert.ToDateTime(sd);
 
-            return View(a);
+            //return View(a);
+            var model = new ParkedVehicleViewModel()
+            {
+                Types = db.VehicleType,
+                Members = db.Members
+            };
+
+            return View(model);
 
         }
 
@@ -91,13 +98,29 @@ namespace Garage_MVC_AmerAwras.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Park([Bind(Include = "Id,RegNumber,Color,Brand,Model,CheckIn,VehicleType,NumberOfWheels")] ParkedVehicle parkedVehicle)
+        public ActionResult Park([Bind(Include = "Id,Regnr,Color,Brand,CheckIn,VehicleType,NumberOfWheels,MemberId,VehicleTypeId")] ParkedVehicleViewModel parkedVehicle)
         {
-          
+            var vehicleToPark = new ParkedVehicle()
+            {
+                Regnr = parkedVehicle.Regnr,
+                Color = parkedVehicle.Color,
+                Brand = parkedVehicle.Brand,
+
+                CheckIn = parkedVehicle.CheckIn,
+                VehicleType = parkedVehicle.VehicleType,
+                NumberOfWheels = parkedVehicle.NumberOfWheels,
+                MemberId = parkedVehicle.MemberId,
+                VehicleTypeId = parkedVehicle.VehicleTypeId,
+                
+
+
+
+            };
 
             if (ModelState.IsValid)
             {
-                db.Vehicles.Add(parkedVehicle);
+
+                db.Vehicles.Add(vehicleToPark);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -182,7 +205,9 @@ namespace Garage_MVC_AmerAwras.Controllers
         }
 
     }
+
 }
+
 
 
 
