@@ -19,7 +19,7 @@ namespace Garage_MVC_AmerAwras.Models
         [DisplayName("Registration Number")]
         public string Regnr { get; set; }
 
-        [Required(ErrorMessage = "Please insert a valid color , Maximum 20 letters")]
+        
         [StringLength(20)]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         public string Color { get; set; }

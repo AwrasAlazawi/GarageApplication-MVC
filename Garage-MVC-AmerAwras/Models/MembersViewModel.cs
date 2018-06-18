@@ -8,9 +8,7 @@ using System.ComponentModel;
 namespace Garage_MVC_AmerAwras.Models
 {
     public class MembersViewModel
-    {
-        public class ParkedVehicleViewModel
-        {
+    {        
             
             public int Id { get; set; }
             [DisplayName("Type of Vehicle")]
@@ -19,10 +17,9 @@ namespace Garage_MVC_AmerAwras.Models
             public string Color { get; set; }
             public string Brand { get; set; }
             public DateTime CheckIn { get; set; }
+            
 
-
-
-            public ParkedVehicleViewModel(ParkedVehicle parkedVehicle)
+            public MembersViewModel(ParkedVehicle parkedVehicle)
             {
                 Id = parkedVehicle.Id;
                 VehicleType = parkedVehicle.VehicleType;
@@ -31,8 +28,5 @@ namespace Garage_MVC_AmerAwras.Models
                 Brand = parkedVehicle.Brand;
                 CheckIn = parkedVehicle.CheckIn;
             }
-
-
         }
     }
-}

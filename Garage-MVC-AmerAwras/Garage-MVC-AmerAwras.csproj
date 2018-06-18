@@ -272,6 +272,10 @@
     <Compile Include="Migrations\201806151205262_workingonmember9.Designer.cs">
       <DependentUpon>201806151205262_workingonmember9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806180954448_parkfunction.cs" />
+    <Compile Include="Migrations\201806180954448_parkfunction.Designer.cs">
+      <DependentUpon>201806180954448_parkfunction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\MembersViewModel.cs" />
@@ -379,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806151205262_workingonmember9.resx">
       <DependentUpon>201806151205262_workingonmember9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806180954448_parkfunction.resx">
+      <DependentUpon>201806180954448_parkfunction.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

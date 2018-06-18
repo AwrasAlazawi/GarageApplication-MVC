@@ -35,11 +35,13 @@ namespace Garage_MVC_AmerAwras.Controllers
             }
 
 
+           // var result = db.Vehicles.Select(v => new ParkedVehicleViewModel() { Brand = v.Brand,  })
+
             List<ParkedVehicleViewModel> iv = new List<ParkedVehicleViewModel>();
             foreach (ParkedVehicle e in parkedVehicle)
 
             {
-                iv.Add(new ParkedVehicleViewModel());
+                iv.Add(new ParkedVehicleViewModel() { Regnr = e.Regnr, CheckIn = e.CheckIn, Brand=e.Brand, Color = e.Color, VehicleType = e.VehicleType });
             }
             return View(iv);
         }
@@ -109,7 +111,7 @@ namespace Garage_MVC_AmerAwras.Controllers
                 Brand = parkedVehicle.Brand,
                 NumberOfWheels = parkedVehicle.NumberOfWheels,
                 CheckIn = parkedVehicle.CheckIn,
-                MemberId = parkedVehicle.MemberId,
+               
                 VehicleTypeId = parkedVehicle.VehicleTypeId,
 
             };
@@ -119,13 +121,10 @@ namespace Garage_MVC_AmerAwras.Controllers
 
                 db.Vehicles.Add(parkedTheVehicle);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("index");
             }
-            else
-            {
-                return RedirectToAction("Index");
-            }
-            //  return View(parkedVehicle);
+          
+              return View(parkedVehicle);
         }
 
 

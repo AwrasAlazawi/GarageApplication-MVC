@@ -32,16 +32,16 @@ namespace Garage_MVC_AmerAwras.Models
 
 
         //Todo Remove
-        //public ParkedVehicleViewModel(ParkedVehicle parkedVehicle)
-        //{
-        //    Id = parkedVehicle.Id;
-        //    VehicleType = parkedVehicle.VehicleType;
-        //    Regnr = parkedVehicle.Regnr;
-        //    Color = parkedVehicle.Color;
-        //    Brand = parkedVehicle.Brand;
-        //    CheckIn = parkedVehicle.CheckIn;
+        public ParkedVehicleViewModel(ParkedVehicle parkedVehicle)
+        {
+            Id = parkedVehicle.Id;
+            VehicleType = parkedVehicle.VehicleType;
+            Regnr = parkedVehicle.Regnr;
+            Color = parkedVehicle.Color;
+            Brand = parkedVehicle.Brand;
+            CheckIn = parkedVehicle.CheckIn;
 
-        //}
+        }
 
         //Remove
 
