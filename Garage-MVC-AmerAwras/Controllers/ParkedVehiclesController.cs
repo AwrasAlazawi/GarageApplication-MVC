@@ -98,34 +98,34 @@ namespace Garage_MVC_AmerAwras.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Park([Bind(Include = "Id,Regnr,Color,Brand,CheckIn,VehicleType,NumberOfWheels,MemberId,VehicleTypeId")] ParkedVehicleViewModel parkedVehicle)
+        public ActionResult Park([Bind(Include = "Id,VehicleType,Regnr,Color,Brand,NumberOfWheels,CheckIn,MemberId,VehicleTypeId")] ParkedVehicleViewModel parkedVehicle)
         {
-            var vehicleToPark = new ParkedVehicle()
+            var parkedTheVehicle = new ParkedVehicle()
             {
+
+                VehicleType = parkedVehicle.VehicleType,
                 Regnr = parkedVehicle.Regnr,
                 Color = parkedVehicle.Color,
                 Brand = parkedVehicle.Brand,
-
-                CheckIn = parkedVehicle.CheckIn,
-                VehicleType = parkedVehicle.VehicleType,
                 NumberOfWheels = parkedVehicle.NumberOfWheels,
+                CheckIn = parkedVehicle.CheckIn,
                 MemberId = parkedVehicle.MemberId,
                 VehicleTypeId = parkedVehicle.VehicleTypeId,
-                
-
-
 
             };
 
             if (ModelState.IsValid)
             {
 
-                db.Vehicles.Add(vehicleToPark);
+                db.Vehicles.Add(parkedTheVehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(parkedVehicle);
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            //  return View(parkedVehicle);
         }
 
 

@@ -17,9 +17,10 @@ namespace Garage_MVC_AmerAwras.Models
         public string Color { get; set; }
         public string Brand { get; set; }
         public int NumberOfWheels { get; set; }
-        [DisplayName("")]
+        [DisplayName("Owner")]
         public int MemberId { get; set; }
         public int VehicleTypeId { get; set; }
+
         public IEnumerable<Member> Members { get; set; }
         public IEnumerable<VehicleType> Types { get; set; }
 
@@ -31,16 +32,16 @@ namespace Garage_MVC_AmerAwras.Models
 
 
         //Todo Remove
-        public ParkedVehicleViewModel(ParkedVehicle parkedVehicle)
-        {
-            Id = parkedVehicle.Id;
-            VehicleType = parkedVehicle.VehicleType;
-            Regnr = parkedVehicle.Regnr;
-            Color = parkedVehicle.Color;
-            Brand = parkedVehicle.Brand;
-            CheckIn = parkedVehicle.CheckIn;
+        //public ParkedVehicleViewModel(ParkedVehicle parkedVehicle)
+        //{
+        //    Id = parkedVehicle.Id;
+        //    VehicleType = parkedVehicle.VehicleType;
+        //    Regnr = parkedVehicle.Regnr;
+        //    Color = parkedVehicle.Color;
+        //    Brand = parkedVehicle.Brand;
+        //    CheckIn = parkedVehicle.CheckIn;
 
-        }
+        //}
 
         //Remove
 

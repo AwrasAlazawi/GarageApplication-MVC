@@ -67,11 +67,12 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.MemberId, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MemberId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
             @Html.ValidationMessageFor(model => model.Members, "", new { @class = "text-danger" })
             @Html.DropDownListFor(model => model.Members, new SelectList(Model.Members, "MemberId", "LastName"), new {@class="from-control"})
         </div>
-
+        </div>
 
         <form method="post" action="Index">
             <div class="form-group">
