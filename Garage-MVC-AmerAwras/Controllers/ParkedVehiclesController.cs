@@ -117,11 +117,11 @@ namespace Garage_MVC_AmerAwras.Controllers
             };
 
             if (ModelState.IsValid)
-            {
-
-                db.Vehicles.Add(parkedTheVehicle);
-                db.SaveChanges();
-                return RedirectToAction("index");
+            {                      
+                    db.Vehicles.Add(parkedTheVehicle);
+                    db.SaveChanges();
+                    return RedirectToAction("index");
+                
             }
           
               return View(parkedVehicle);
@@ -139,7 +139,7 @@ namespace Garage_MVC_AmerAwras.Controllers
                 return RedirectToAction("Overview");
             }
             ParkedVehicle v = db.Vehicles.Find(id);
-
+            
             if (v == null)
             {
                 return RedirectToAction("Overview");
@@ -153,13 +153,14 @@ namespace Garage_MVC_AmerAwras.Controllers
             return View(vehicle);
 
         }
-
+        
         // POST: ParkedVehicles/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
 
         public ActionResult VehicleReceipt(int id)
         {
+            
             ParkedVehicle v = db.Vehicles.Find(id);
             if (v == null)
             {
@@ -168,7 +169,7 @@ namespace Garage_MVC_AmerAwras.Controllers
             db.Vehicles.Remove(v);
             db.SaveChanges();
 
-            VehicleReceipt info = new VehicleReceipt(v.Id, v.Regnr, v.Model, v.CheckIn, DateTime.Now);
+            VehicleReceipt info = new VehicleReceipt(v.Id, v.Regnr, v.Brand, v.CheckIn, DateTime.Now);
             return View(info);
         }
 
@@ -180,6 +181,7 @@ namespace Garage_MVC_AmerAwras.Controllers
             }
             base.Dispose(disposing);
         }
+        
 
         //GaragePage
         public ActionResult GaragePage()

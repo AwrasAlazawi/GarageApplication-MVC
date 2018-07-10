@@ -19,7 +19,7 @@ namespace Garage_MVC_AmerAwras.Models
         [DisplayName("Registration Number")]
         public string Regnr { get; set; }
 
-        
+
         [StringLength(20)]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         public string Color { get; set; }
@@ -29,13 +29,10 @@ namespace Garage_MVC_AmerAwras.Models
         [MinLength(3)]
         public string Brand { get; set; }
 
-        [Required(ErrorMessage = "Please insert a valid model")]
-        [StringLength(20)]
-        public string Model { get; set; }
 
-       [Required(ErrorMessage = "Please insert a valid number of wheels")]
-       [DisplayName("Nr Of Wheels")]
-       [Range(0, 40, ErrorMessage = "Value must be between 0 to 40")]
+        [Required(ErrorMessage = "Please insert a valid number of wheels")]
+        [DisplayName("Nr Of Wheels")]
+        [Range(0, 40, ErrorMessage = "Value must be between 0 to 40")]
         public int NumberOfWheels { get; set; }
 
 
@@ -43,7 +40,7 @@ namespace Garage_MVC_AmerAwras.Models
         [DisplayName("Time Checked In")]
         public DateTime CheckIn { get; set; }
 
-       // public string Fullname { get; set; }
+        // public string Fullname { get; set; }
 
 
         public int MemberId { get; set; }
@@ -52,7 +49,6 @@ namespace Garage_MVC_AmerAwras.Models
         public int VehicleTypeId { get; set; }
         [DisplayName("Type of Vehicle")]
         public virtual VehicleType VehicleType { get; set; }
-      
 
 
         

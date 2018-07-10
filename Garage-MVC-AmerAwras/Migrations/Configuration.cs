@@ -37,7 +37,7 @@ namespace Garage_MVC_AmerAwras.Migrations
                 new VehicleType() {VehicleTypeName="Boat"}
                 };
 
-            context.VehicleType.AddOrUpdate(t => t.VehicleTypeName, types[0], types[1], types[2], types[3], types[4]);
+            context.VehicleType.AddOrUpdate(t => t.VehicleTypeName, types);
 
             context.SaveChanges();
 
@@ -47,7 +47,7 @@ namespace Garage_MVC_AmerAwras.Migrations
                 Regnr = "AAA123",
                 Color = "Silver",
                 Brand = "BMW",
-                Model = "BMW 303",
+                
                 NumberOfWheels = 4,
                 CheckIn = DateTime.Now,
                 MemberId = members[0].MemberId,              
@@ -61,7 +61,7 @@ namespace Garage_MVC_AmerAwras.Migrations
                 Regnr = "BBB321",
                 Color = "Purple",
                 Brand = "Husqvarna",
-                Model = "5000",
+                
                 NumberOfWheels = 4,
                 CheckIn = DateTime.Now,
                 MemberId = members[1].MemberId,
@@ -74,7 +74,7 @@ namespace Garage_MVC_AmerAwras.Migrations
                 Regnr = "CCC999",
                 Color = "Yellow",
                 Brand = "Saab",
-                Model = "900",
+                
                 NumberOfWheels = 4,
                 CheckIn = DateTime.Now,
                 MemberId = members[2].MemberId,

@@ -276,6 +276,14 @@
     <Compile Include="Migrations\201806180954448_parkfunction.Designer.cs">
       <DependentUpon>201806180954448_parkfunction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806190746477_bugfixmaybe.cs" />
+    <Compile Include="Migrations\201806190746477_bugfixmaybe.Designer.cs">
+      <DependentUpon>201806190746477_bugfixmaybe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806190804492_test.cs" />
+    <Compile Include="Migrations\201806190804492_test.Designer.cs">
+      <DependentUpon>201806190804492_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\MembersViewModel.cs" />
@@ -386,6 +394,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806180954448_parkfunction.resx">
       <DependentUpon>201806180954448_parkfunction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806190746477_bugfixmaybe.resx">
+      <DependentUpon>201806190746477_bugfixmaybe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806190804492_test.resx">
+      <DependentUpon>201806190804492_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
